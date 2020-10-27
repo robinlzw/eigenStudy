@@ -158,9 +158,11 @@
     <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfvector3.h" />
     <ClInclude Include="..\..\..\projectStudy\Base\vmath\vmathpredef.h" />
     <ClInclude Include="..\..\..\projectStudy\Base\vstd\dstrm.h" />
+    <ClInclude Include="myAsistant.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\projectStudy\Base\vmath\vfvector3.inl" />
+    <None Include="myAsistant.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -50,9 +50,15 @@
     <ClInclude Include="..\..\..\projectStudy\Base\vmath\vflocation.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="myAsistant.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\projectStudy\Base\vmath\vfvector3.inl">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="myAsistant.inl">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>
