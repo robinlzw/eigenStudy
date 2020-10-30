@@ -14,7 +14,7 @@
 #include "ticmn.h"			// 提供了处理VSConstBuffer等类型数据的函数。
 #include "pttrn.h"			// 一些常用的模式
 #include "strm.h"			// 提供了TVPersist, TVFilePersist等类模板
-
+#include "projectDS.h"
 
 /*
 	包含目录：
@@ -28,7 +28,6 @@ using namespace Eigen;     // 改成这样亦可 using Eigen::MatrixXd;
 using namespace std;
 
 #define PI 3.14159
-
 
 
 /*
@@ -45,35 +44,107 @@ using namespace std;
 
 
 
-// 第一个eigen程序
+// test0——eigen库的数据结构
 void test0() 
 {
-	MatrixXd m = MatrixXd::Random(3, 3);              // 矩阵类static方法——Random()——返回随机矩阵
-	VectorXd v(3);										// 定义v为3*1的double型向量
-	Vector3d v1;
-	
-	// 矩阵类的static方法——Constant()——返回常数矩阵。
-	m = (m + MatrixXd::Constant(3, 3, 1.2)) * 50;      //MatrixXd::Constant(3,3,1.2)表示生成3*3的double型矩阵，该矩阵所有元素均为1.2
-	cout << "m == \n" << endl << m << endl;
+	// 堆矩阵、向量——确定了尺寸，但未初始化,数据存在堆上
+	MatrixXd m1(2, 2);
+	MatrixXf mf1(1, 2);
+	VectorXd v1(3);			// 注意是列向量
+	cout << v1 << endl;
 
 
-	// 向量类重载了流输出符。
-	v << 1, 2, 3;							// 向量赋值
-	cout << "m * v == \n" << endl << m * v << endl;
+	// 堆Array
+	ArrayXXd a1(2, 2), a2(2, 2);
+	a1 << 1, 2, 3, 4;
+	a2 << 1, 2, 3, 4;
+	cout << "a1 = \n" << a1 << endl;
+	cout << "a1*a2 = \n" << a1*a2 << endl;
 
 
-	v1 << 1, 2, 3;        
-	cout << "v1 == \n" << v1 << endl;
-	cout << "v1[0] == " << v1[0] << endl;			// 元素下标访问
 
+	// 栈Array
+
+
+
+	// 生成特殊矩阵的接口
+	MatrixXd m2 = MatrixXd::Random(3, 3);              // 矩阵类static方法——Random()——返回随机矩阵
+	MatrixXd m3 = MatrixXd::Constant(3, 3, 1.2);		// 常数矩阵
+	MatrixXd m4 = MatrixXd::Ones(1,2);					// 全1矩阵
+
+
+
+	// 数据存在栈上的矩阵类型
+	Matrix3d mm1 = Matrix3d::Random();
+	Vector3d vv1(1, 2, 3);
+	cout << "m2 = \n" << m2 << endl << endl;
+	cout << "mm1 = \n" << mm1 << endl << endl;
+	//		堆矩阵和栈矩阵可以相互赋值。
+	mm1 = m2;
+	cout << "mm1 = \n" << mm1 << endl << endl;
+
+
+
+	// 获取矩阵性质的接口
+	cout << m1.rows() << endl;
+	cout << m1.cols() << endl;
+	cout << m1.size() << endl;
+
+
+	// 列向量对象可以和矩阵对象相互构造
+	Vector3d vv2(1,2,3);			 
+	//		
+	MatrixXd mm(v1);			
+	Vector3d vv3(mm);
+	cout << "vv2 = \n" << vv2 << endl << endl;
+	cout << "vv3 = \n" << vv3 << endl << endl;
+	cout << "mm = \n" << mm << endl << endl;
+	cout << "mm.transpose() = \n" << mm.transpose() << endl << endl;
+
+
+	//		列向量对象可以和矩阵对象相互赋值
+	vv2 = m2.block<3,1>(0,0);
+	cout << "vv2 = \n" << vv2 << endl << endl;
+	mm = vv2;
+	cout << "mm = \n" << mm << endl << endl;
 }
 
 
 
-// 工作项目
-//		可以修改simplemesh表示的三维网格数据吗。
+
+// test1——矩阵性质
 void test1() 
 {
+	MatrixXd m1(3, 4);
+	VectorXd v1(5);
+
+	// 输出流运算符赋值
+	m1 << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+	v1 << 1, 2;
+	cout << "v1 = \n" << v1 << endl << endl;
+
+	v1 << 3, 4, 5;			// 不会接着上面的赋值，而是从第一个元素开始赋值
+	cout << "v1 = \n" << v1 << endl << endl;
+
+
+
+	// 括号运算符访问元素，注意索引从0开始
+	cout << "m1(0, 1) ==" << m1(0, 1) << endl;
+	cout << "v1(3) == " << v1(3) << endl;
+	// 求矩阵的性质的类内接口
+	cout << "求和：sum():       " << m1.sum() << endl;
+	cout << "？？？：prod():      " << m1.prod() << endl;
+	cout << "均值：mean():      " << m1.mean() << endl;
+	cout << "？？？：minCoeff():  " << m1.minCoeff() << endl;
+	cout << "？？？：maxCoeff():  " << m1.maxCoeff() << endl;
+	cout << "矩阵的迹：trace():     " << m1.trace() << endl << endl;
+
+
+
+	// 基本的矩阵变换
+	cout << "矩阵的转置：transpose() \n" << m1.transpose() << endl << endl;
+	cout << m1 << endl;
+
 
 
 
@@ -84,85 +155,108 @@ void test1()
 
 
 
-//	测试buffer类模板
-/*
-	是一个行为像指针的类，封装的是数据的指针。
-	成员数据
-			unsigned    len;		元素数
-			const T *   pData;		数据的指针，注意是底层const，不可以通过指针修改数据。
-*/
-void test2()
+// test2——矩阵基本变换、运算
+void test2() 
 {
-	int arri[] = {1,2,3,4,5};
-	VSConstBuffer<int> buffer(5,arri);		// 带参构造。
+	MatrixXd m1(3, 4);
+	m1 << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+
+	cout << "m1 = \n" << endl;
+	cout << m1 << endl << endl;
+
+	// MatrixXd::block<>()方法——提取子矩阵。尖括号是子矩阵维度，圆括号表示子矩阵起点。
+	cout << m1.block<2, 2>(1, 1) << endl << endl;
+	cout << m1.block<1, 3>(1, 0) << endl << endl;
+
+	// 对矩阵的一部分使用输出流运算符赋值
+	m1.block<1, 4>(1, 0) << 88, 99, 111, 222;
+	cout << "m1 = \n" << m1 << endl << endl;
+	m1.block<1, 4>(1, 0) << 5, 6, 7, 8;
+
+
+	// 矩阵按行、按列操作
+	cout << m1.colwise().sum() << endl << endl;				// 按列求和，压成一个行向量
+	cout << m1.rowwise().sum() << endl << endl;				// 按行求和，压成一个列向量。
+
+
+															// 矩阵运算实现的矩阵扩张：
+	MatrixXd  a(1, 3), b(3, 1);
+	a << 1, 2, 3;
+	b << 4, 5, 6;
+	//		行向量扩张N行 == 左乘ones(N,1)
+	auto aa = MatrixXd::Ones(3, 1)*a;
+	//		列向量扩张为N列 == 右乘ones(1,N)
+	auto bb = b*MatrixXd::Ones(1, 4);
+
+	cout << aa << endl << endl;;
+	cout << bb << endl << endl;;
+
+
+	// 矩阵乘法。
+	
+	// 矩阵按元素相乘需要转换到Array中进行：
+	MatrixXd m2(3, 4);
+	m2 << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+	ArrayXXd a1(m1), a2(m2);
+	ArrayXXd resultA = a1*a2;
+	MatrixXd resultM(resultA);
+	cout << "resultM == \n" << resultM << endl;
 
 
 
-	// VD_V2CB()——STL向量转换为buffer对象，vector to const buffer
-	/*
-		VSConstBuffer< T > VD_V2CB( const std::vector< T > & v )
-	*/
-	vector<string> vec_str;
-	vec_str.push_back("hahahaha");
-	vec_str.push_back("wawawa");
 
-	auto buffer_str = VD_V2CB(vec_str);
-	cout << "len == " << buffer_str.len << endl;
+	// 向量点乘、叉乘
 
-	const string* pstr = buffer_str.pData;
-	cout << *pstr++ << endl;
-	cout << *pstr << endl;
 
+	// 向量归一化
+	Vector3d v1(1, 2, 3);
+	Vector3d v2(3,2,1);
+	v1.normalize();					// normalize()会将向量本身归一化，normalized()只是返回归一化向量，不改变自身
+	cout << "v1 = \n" << v1 << endl << endl;
+	cout << "v2.normalized() = \n" << v2.normalized() << endl << endl;
+	cout << "v2 = \n" << v2 << endl << endl;
 }
 
 
 
-// 测试TVPersist类模板
-/*
-	成员数据(private)
-			std::vector< char > m_buff;			？？？序列化的数据？
-			struct InputPort
-			struct CoorectPort
 
-	对外接口
-			Get()
-					返回封装数据的指针，为T*类型
-			Build()
-					接受T类型的数据，序列化为自己的成员数据m_buff
-			GetBuffer()
-					将成员数据m_buff向量封装成buffer然后返回。
-*/
+
+// 矩阵不那么基本的变换、运算
 void test3() 
 {
-	TVPersist<VFVECTOR3> vp;
-	VFVECTOR3 v1(1,2,3);
-
-	vp.Build(v1);		// 将参数数据序列化，存入到本序列化对象的m_buff成员向量之中。
-	
-
-	VFVECTOR3 v2 = vp.Get();							// 返回序列化之前的数据。
-	VSConstBuffer<char> buffer_per = vp.GetBuffer();		// 返回序列化的数据，即m_buff成员变量。
-	
-	v3disp(v2);
+	Matrix3d A;
+	A << 1, 2, 3, 4, 5, 6, 7, 8, 9;
 
 
-	// 看一下序列化后的数据是什么样的。
-	const char* pc = buffer_per.pData;
-	cout << "序列化之后的数据字节数：" << buffer_per.len << endl;
-	cout << "序列化之前的数据字节数：" << sizeof(v1) << endl;
-	for (int i = 0; i < buffer_per.len; i++)
-	{
-		cout << *pc << endl;
-		pc++;
-	}
-	
+	// 求矩阵的特征值、特征向量。
+	EigenSolver<Matrix3d> es(A);
+	Matrix3d D = es.pseudoEigenvalueMatrix();			// 对角线元素是特征值
+	Matrix3d V = es.pseudoEigenvectors();				// 每一个列向量都是特征向量。
+	cout << "特征值矩阵D：" << endl << D << endl;
+	cout << "特征向量矩阵V: " << endl << V << endl;
+	cout << "Finally, V * D * V^(-1) = " << endl << V * D * V.inverse() << endl;
+
+	cout << A*V.block<3, 1>(0, 0) << endl << endl;
+	cout << D(0,0)*V.block<3, 1>(0, 0) << endl << endl;
 }
 
 
 
 int main()
 {
-	test3();
+	VectorXd x(5), y(5);
+	x << 1, 2, 3, 4, 5;
+	y << 5, 4, 3, 2, 1;
+	
+	auto sum2 = [](const VectorXd& x, const VectorXd& y) 
+	{
+		ArrayXd a1(x), a2(y);
+		VectorXd temp(a1*a2);
+		return temp.sum();
+
+	};
+
+	cout << sum2(x,y) << endl;
 
 
 	getchar();
