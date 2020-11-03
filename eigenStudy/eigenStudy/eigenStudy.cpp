@@ -44,10 +44,13 @@ using namespace std;
 
 
 
-// test0——eigen库的数据结构
+// test0——eigen库的基本数据结构
 void test0() 
 {
 	// 堆矩阵、向量——确定了尺寸，但未初始化,数据存在堆上
+	//			最基本模板——Matrix<typename Scalar, int RowsAtCompileTime, int ColsAtCompileTime>
+	//			堆矩阵——typedef Matrix<double, Dynamic, Dynamic> MatrixXd;
+	//			堆向量——typedef Matrix<int, Dynamic, 1> VectorXi;
 	MatrixXd m1(2, 2);
 	MatrixXf mf1(1, 2);
 	VectorXd v1(3);			// 注意是列向量
@@ -112,7 +115,7 @@ void test0()
 
 
 
-// test1——矩阵性质
+// test1——矩阵性质、元素访问。
 void test1() 
 {
 	MatrixXd m1(3, 4);
@@ -127,11 +130,19 @@ void test1()
 	cout << "v1 = \n" << v1 << endl << endl;
 
 
+	// 下标运算符[]只能获取向量元素，因为[]只支持一个参数。
+	cout << "v1[0] == " << v1[0] << endl << endl;;
+
 
 	// 括号运算符访问元素，注意索引从0开始
 	cout << "m1(0, 1) ==" << m1(0, 1) << endl;
 	cout << "v1(3) == " << v1(3) << endl;
+
+
 	// 求矩阵的性质的类内接口
+	cout << "元素数：m1.size() == " << m1.size() << endl;
+	cout << "行数：m1.rows() == " << m1.rows() << endl;
+	cout << "列数：m1.cols() == " << m1.cols() << endl;
 	cout << "求和：sum():       " << m1.sum() << endl;
 	cout << "？？？：prod():      " << m1.prod() << endl;
 	cout << "均值：mean():      " << m1.mean() << endl;
@@ -146,10 +157,6 @@ void test1()
 	cout << m1 << endl;
 
 
-
-
-
-
 }
 
 
@@ -158,8 +165,9 @@ void test1()
 // test2——矩阵基本变换、运算
 void test2() 
 {
-	MatrixXd m1(3, 4);
+	MatrixXd m1(3, 4), m3(4, 4);
 	m1 << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+	m3 << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16;
 
 	cout << "m1 = \n" << endl;
 	cout << m1 << endl << endl;
@@ -174,12 +182,22 @@ void test2()
 	m1.block<1, 4>(1, 0) << 5, 6, 7, 8;
 
 
+
+	// 更改矩阵尺寸——只适用于堆矩阵、堆向量
+	m3.resize(3,3);
+	cout << "m3.size() == "<< m3.size() << endl;
+	cout << "m3.rows() == " << m3.rows() << endl;
+	cout << "m3.cols() == " << m3.cols() << endl;
+	cout << "m3 = \n" << m1 << endl << endl;
+
+
+
 	// 矩阵按行、按列操作
 	cout << m1.colwise().sum() << endl << endl;				// 按列求和，压成一个行向量
 	cout << m1.rowwise().sum() << endl << endl;				// 按行求和，压成一个列向量。
 
 
-															// 矩阵运算实现的矩阵扩张：
+	// 矩阵扩张——通过矩阵乘法实现
 	MatrixXd  a(1, 3), b(3, 1);
 	a << 1, 2, 3;
 	b << 4, 5, 6;
@@ -192,9 +210,9 @@ void test2()
 	cout << bb << endl << endl;;
 
 
-	// 矩阵乘法。
-	
-	// 矩阵按元素相乘需要转换到Array中进行：
+
+
+	// 矩阵按元素相乘——需要转换到Array中进行：
 	MatrixXd m2(3, 4);
 	m2 << 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 	ArrayXXd a1(m1), a2(m2);
@@ -204,13 +222,17 @@ void test2()
 
 
 
-
 	// 向量点乘、叉乘
+	Vector3d v1(1, 2, 3);
+	Vector3d v2(3, 2, 1);
+	cout << "v1.dot(v2) == \n" << v1.dot(v2) << endl;
+	cout << "v1.cross(v2) == " << v1.cross(v2) << endl << endl;;
+	
+
+
 
 
 	// 向量归一化
-	Vector3d v1(1, 2, 3);
-	Vector3d v2(3,2,1);
 	v1.normalize();					// normalize()会将向量本身归一化，normalized()只是返回归一化向量，不改变自身
 	cout << "v1 = \n" << v1 << endl << endl;
 	cout << "v2.normalized() = \n" << v2.normalized() << endl << endl;
@@ -221,7 +243,7 @@ void test2()
 
 
 
-// 矩阵不那么基本的变换、运算
+// test3——线性代数科学计算的接口
 void test3() 
 {
 	Matrix3d A;
@@ -244,20 +266,17 @@ void test3()
 
 int main()
 {
-	VectorXd x(5), y(5);
-	x << 1, 2, 3, 4, 5;
-	y << 5, 4, 3, 2, 1;
-	
-	auto sum2 = [](const VectorXd& x, const VectorXd& y) 
-	{
-		ArrayXd a1(x), a2(y);
-		VectorXd temp(a1*a2);
-		return temp.sum();
+	// test2();
+	Vector3f v(1, 2, 3);
+	Vector3f q(2, 3, 4);
+	float s = 5;
 
-	};
+	Vector3f q_inv = s*s*v + q*(q.dot(v))+ 2*s*q.cross(v) + q.cross(q.cross(v));
+	Vector3f result2 = v + 2 * s*q.cross(v) + 2*q.cross(q.cross(v));
 
-	cout << sum2(x,y) << endl;
 
+	cout << result1 << endl << endl;
+	cout << result2 << endl;
 
 	getchar();
 	return 0;
