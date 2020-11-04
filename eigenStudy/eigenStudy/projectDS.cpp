@@ -1,8 +1,11 @@
 #include "projectDS.h"
+// 工作项目中的自定义数据结构
+
+
 
 using namespace Eigen;     // 改成这样亦可 using Eigen::MatrixXd; 
 using namespace std;
-
+const double pi = 3.14159;
 
 #define PI 3.14159
 
@@ -99,5 +102,17 @@ void test3()
 }
 
 
+
+// 测试VFQuaternion四元数类
+void test4() 
+{
+	VFQuaternion q1(1, 2, 3, 4);
+
+	// 输入旋转轴向量、旋转角度生成四元数对象
+	VFQuaternion q2 = VFQuaternion::FromAxisAngle(VFVECTOR3::AXIS_Z, pi/2);
+	v3disp(q2*VFVECTOR3(1, 0, 0));
+
+
+}
 
 }

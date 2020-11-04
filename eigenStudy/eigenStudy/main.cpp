@@ -266,18 +266,7 @@ void test3()
 
 int main()
 {
-	// test2();
-	Vector3f v(1, 2, 3);
-	Vector3f q(2, 3, 4);
-	float s = 5;
-
-	Vector3f q_inv = s*s*v + q*(q.dot(v))+ 2*s*q.cross(v) + q.cross(q.cross(v));
-	Vector3f result2 = v + 2 * s*q.cross(v) + 2*q.cross(q.cross(v));
-
-
-	cout << result1 << endl << endl;
-	cout << result2 << endl;
-
+	PDS::test4();
 	getchar();
 	return 0;
 }

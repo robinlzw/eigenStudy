@@ -146,8 +146,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Base\vmath\vfquaternion.cpp" />
     <ClCompile Include="..\..\..\projectStudy\Base\vmath\vfvector3.cpp" />
-    <ClCompile Include="eigenStudy.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="projectDS.cpp" />
   </ItemGroup>
   <ItemGroup>

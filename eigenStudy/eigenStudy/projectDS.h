@@ -14,6 +14,11 @@
 #include "ticmn.h"			// 提供了处理VSConstBuffer等类型数据的函数。
 #include "pttrn.h"			// 一些常用的模式
 #include "strm.h"			// 提供了TVPersist, TVFilePersist等类模板
+ 
+
+
+// projectDS.h——工作项目中的自定义数据结构的测试
+
 
 
 namespace PDS 
