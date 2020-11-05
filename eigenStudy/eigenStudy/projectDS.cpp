@@ -9,6 +9,8 @@ const double pi = 3.14159;
 
 #define PI 3.14159
 
+
+
 namespace PDS 
 {
 
@@ -114,5 +116,16 @@ void test4()
 
 
 }
+
+}
+
+
+// 测试VFLocation类
+void test5() 
+{
+	// 使用VFLocation对象将一个牙齿网格旋转然后平移。
+
+	//VFLocation loc();
+
 
 }

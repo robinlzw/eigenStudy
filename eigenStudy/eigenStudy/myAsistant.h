@@ -18,6 +18,15 @@
 
 inline void v3disp(const VFVECTOR3&);
 
+inline void writeData2D(const VectorXd& x, const VectorXd& y);
+
+inline void writeData3D();
+
+inline void writeOBJ();
+
+inline void readOBJ()
+
+ 
 
 
 #include "myAsistant.inl"

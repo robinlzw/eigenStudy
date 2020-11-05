@@ -44,6 +44,8 @@ using namespace std;
 
 
 
+
+
 // test0——eigen库的基本数据结构
 void test0() 
 {
@@ -261,6 +263,31 @@ void test3()
 	cout << A*V.block<3, 1>(0, 0) << endl << endl;
 	cout << D(0,0)*V.block<3, 1>(0, 0) << endl << endl;
 }
+
+
+
+
+
+// example1——最小二乘法直线拟合
+void example1()
+{
+
+}
+
+
+// example2——最小二乘法椭圆曲线拟合
+void example2()
+{
+
+}
+
+
+// example3——主成分分析确定椭圆主轴
+void example2()
+{
+
+}
+
 
 
 
