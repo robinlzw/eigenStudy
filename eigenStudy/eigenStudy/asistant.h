@@ -1,8 +1,12 @@
 #pragma once
+
 #include <iostream>
+#include <fstream>
 #include <Eigen\Dense>		// 需要把eigen的目录添加到包含目录中。
 #include <vector>
 #include <string>
+#include <type_traits>
+#include <memory>
 
 #include "vfvector3.h"		// 提供了三维空间向量类VFVECTOR3
 #include "vfmesh.h"			// 提供了三维网格的几种数据结构。
@@ -14,23 +18,14 @@
 #include "pttrn.h"			// 一些常用的模式
 #include "strm.h"			// 提供了TVPersist, TVFilePersist等类模板
 
-// 自己写的一些辅助函数
-
-inline void v3disp(const VFVECTOR3&);
-
-inline void writeData2D(const VectorXd& x, const VectorXd& y);
-
-inline void writeData3D();
-
-inline void writeOBJ();
-
-inline void readOBJ()
-
- 
 
 
-#include "myAsistant.inl"
+#define MAXLEN 1024
 
+void v3disp(const VFVECTOR3& v);
 
-
-
+void writeData2D(const Eigen::VectorXd& x, const Eigen::VectorXd& y, const char* filename);
+void readData2D(Eigen::VectorXd& x, Eigen::VectorXd& y, const char* filename);
+void writeData3D();
+void writeOBJ();
+void readOBJ();

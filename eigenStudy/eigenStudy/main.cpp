@@ -1,20 +1,4 @@
-#include <iostream>
-#include <Eigen\Dense>		// 需要把eigen的目录添加到包含目录中。
-#include <vector>
-#include <string>
-
-
-#include "myAsistant.h"		// 自己写的一些辅助函数
-#include "vfvector3.h"		// 提供了三维空间向量类VFVECTOR3
-#include "vfmesh.h"			// 提供了三维网格的几种数据结构。
-#include "vfquaternion.h"	// 提供了四元数类
-#include "vflocation.h"		// 提供了实施局部/全局坐标系转换的类VFLocation
-#include "obj.h"			// 提供了一堆接口类。
-#include "mem.h"			// 提供了VSConstBuffer类
-#include "ticmn.h"			// 提供了处理VSConstBuffer等类型数据的函数。
-#include "pttrn.h"			// 一些常用的模式
-#include "strm.h"			// 提供了TVPersist, TVFilePersist等类模板
-#include "projectDS.h"
+#include "asistant.h"
 
 /*
 	包含目录：
@@ -132,8 +116,8 @@ void test1()
 	cout << "v1 = \n" << v1 << endl << endl;
 
 
-	// 下标运算符[]只能获取向量元素，因为[]只支持一个参数。
-	cout << "v1[0] == " << v1[0] << endl << endl;;
+	// 下标运算符[]只能获取向量元素，矩阵对象无法使用，因为[]只支持一个参数。
+	cout << "v1[0] == " << v1[0] << endl << endl;
 
 
 	// 括号运算符访问元素，注意索引从0开始
@@ -283,7 +267,7 @@ void example2()
 
 
 // example3——主成分分析确定椭圆主轴
-void example2()
+void example3()
 {
 
 }
@@ -293,7 +277,29 @@ void example2()
 
 int main()
 {
-	PDS::test4();
+
+
+	MatrixXd temp;
+	VectorXd tempv;
+	cout << temp.rows() << temp.cols() << endl;
+	temp.resize(4, 5);
+	cout << temp.rows() << temp.cols() << endl;
+	cout << tempv.rows() << tempv.cols() << endl;
+
+
+	VectorXd x(8), y(8);
+	x << 1, 2, 3, 4, 5, 6, 7, 8;
+	y << 8, 7, 6, 5, 4, 3, 2, 1;
+	writeData2D(x, y, "data.dat");
+
+	VectorXd new_x(8), new_y(8);
+	readData2D(new_x, new_y, "data.dat");
+
+	cout << new_x << endl;
+	cout << new_y << endl;
+
+ 
+
 	getchar();
 	return 0;
 }
