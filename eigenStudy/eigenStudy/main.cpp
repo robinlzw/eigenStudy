@@ -293,13 +293,11 @@ int main()
 	writeData2D(x, y, "data.dat");
 
 	VectorXd new_x(8), new_y(8);
-	readData2D(new_x, new_y, "data.dat");
+	readData(new_x, "data_x.dat");
 
 	cout << new_x << endl;
-	cout << new_y << endl;
 
-	string str = "data.dat";
-	
+
  
 
 	getchar();

@@ -25,7 +25,7 @@
 void v3disp(const VFVECTOR3& v);
 
 void writeData2D(const Eigen::VectorXd& x, const Eigen::VectorXd& y, const char* filename);
-void readData2D(Eigen::VectorXd& x, Eigen::VectorXd& y, const char* filename);
+void readData(Eigen::VectorXd& x, const char* filename);
 void writeData3D();
 void writeOBJ();
 void readOBJ();
