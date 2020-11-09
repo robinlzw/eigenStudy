@@ -298,6 +298,8 @@ int main()
 	cout << new_x << endl;
 	cout << new_y << endl;
 
+	string str = "data.dat";
+	
  
 
 	getchar();
