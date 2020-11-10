@@ -117,11 +117,11 @@ void test4()
 
 }
 
-}
+
 
 
 // 测试VFLocation类
-void test5() 
+void test5()
 {
 	// 使用VFLocation对象将一个牙齿网格旋转然后平移。
 
@@ -129,3 +129,20 @@ void test5()
 
 
 }
+
+
+
+// 测试TVBuilderArgTuple类模板
+void test6()
+{
+
+
+}
+
+
+
+
+
+}
+
+

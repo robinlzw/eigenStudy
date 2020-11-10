@@ -65,6 +65,9 @@
     <ClInclude Include="asistant.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Base\vstd\strm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\projectStudy\Base\vmath\vfvector3.inl">

@@ -16,7 +16,7 @@
 #include "mem.h"			// 提供了VSConstBuffer类
 #include "ticmn.h"			// 提供了处理VSConstBuffer等类型数据的函数。
 #include "pttrn.h"			// 一些常用的模式
-#include "strm.h"			// 提供了TVPersist, TVFilePersist等类模板
+#include "strm.h"			// 提供了TVPersist, TVFilePersist, TVBuilderArgTuple等类模板
 
 
 
