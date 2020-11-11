@@ -277,28 +277,15 @@ void example3()
 
 int main()
 {
+	VFVECTOR3 x, y, z;
+	x = VFVECTOR3::AXIS_X;
+	y = VFVECTOR3::AXIS_Y;
+	z = VFVECTOR3::AXIS_Z;
 
 
-	MatrixXd temp;
-	VectorXd tempv;
-	cout << temp.rows() << temp.cols() << endl;
-	temp.resize(4, 5);
-	cout << temp.rows() << temp.cols() << endl;
-	cout << tempv.rows() << tempv.cols() << endl;
-
-
-	VectorXd x(8), y(8);
-	x << 1, 2, 3, 4, 5, 6, 7, 8;
-	y << 8, 7, 6, 5, 4, 3, 2, 1;
-	writeData2D(x, y, "data.dat");
-
-	VectorXd new_x(8), new_y(8);
-	readData(new_x, "data_x.dat");
-
-	cout << new_x << endl;
-
-
- 
+	v3disp(x.Cross(y));
+	v3disp(y.Cross(z));
+	v3disp(z.Cross(x));
 
 	getchar();
 	return 0;
