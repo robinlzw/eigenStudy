@@ -1,4 +1,5 @@
 #include "asistant.h"
+#include "projectDS.h"
 
 /*
 	°üº¬Ä¿Â¼£º
@@ -277,15 +278,7 @@ void example3()
 
 int main()
 {
-	VFVECTOR3 x, y, z;
-	x = VFVECTOR3::AXIS_X;
-	y = VFVECTOR3::AXIS_Y;
-	z = VFVECTOR3::AXIS_Z;
-
-
-	v3disp(x.Cross(y));
-	v3disp(y.Cross(z));
-	v3disp(z.Cross(x));
+	PDS::test2();
 
 	getchar();
 	return 0;
