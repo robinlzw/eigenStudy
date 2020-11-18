@@ -17,6 +17,25 @@
 #include "ticmn.h"			// 提供了处理VSConstBuffer等类型数据的函数。
 #include "pttrn.h"			// 一些常用的模式
 #include "strm.h"			// 提供了TVPersist, TVFilePersist, TVBuilderArgTuple等类模板
+#include "./Common/obj/tisysbak.h"		// 提供了TVR2BBase<>类模板，TVR2B<>类模板等
+
+
+
+#define VD_DEFRELATION( relation_name , ... )  class VIID_##relation_name ; \
+    template<> struct IVRLTN< VIID_##relation_name > \
+    {\
+        typedef TVRelationDesc< VIID_##relation_name , __VA_ARGS__ >   DESC  ;\
+        typedef typename DESC::ID                                      ID    ;\
+        typedef typename DESC::NAME                                    NAME  ;\
+        typedef typename DESC::VALUE                                   VALUE ;\
+        typedef typename DESC::HUB                                     HUB   ;\
+    };\
+    using relation_name = IVRLTN< VIID_##relation_name >
+
+
+
+
+
 
 
 

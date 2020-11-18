@@ -244,6 +244,21 @@ void test7()
 
 }
 
+
+
+// ≤‚ ‘TVR2B¿‡
+void test8() 
+{
+	TVR2B<VFVECTOR3>	v1();
+	
+	VFVECTOR3 vec1(1,2,3);
+	VFQuaternion q1(1, 2, 3, 4);
+
+	//v1.Build(vec1, q1);
+
+
+}
+
 }
 
 

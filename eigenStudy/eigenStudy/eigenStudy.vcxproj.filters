@@ -33,6 +33,9 @@
     <ClCompile Include="projectDS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="macroAnalyse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfdef.h">
@@ -66,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\projectStudy\Base\vstd\strm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\tisysbak.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
