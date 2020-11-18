@@ -46,6 +46,14 @@ void test2()
 	VSConstBuffer<int> buffer(5, arri);		// 带参构造。
 
 
+	// 使用下标运算符访问VCBuffer中的元素：
+	for (int i = 0; i < buffer.len; i++) 
+	{
+		cout << buffer.pData[i] << "   ";
+	}
+	cout << endl;
+
+
 
 	// VD_V2CB()——STL向量转换为buffer对象，vector to const buffer
 	/*
@@ -227,6 +235,14 @@ void test6()
 }
 
 
+
+// 测试VFMatrix3类
+void test7() 
+{
+	
+
+
+}
 
 }
 
