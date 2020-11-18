@@ -34,6 +34,20 @@
 
 
 
+#define VD_DEFRELATION_NS( ns_name , relation_name , ... )  class VIID_##relation_name ; \
+    struct IVRLTN_##relation_name \
+    {\
+        typedef TVRelationDesc< VIID_##relation_name , __VA_ARGS__ >   DESC  ;\
+        typedef typename DESC::ID                                      ID    ;\
+        typedef typename DESC::NAME                                    NAME  ;\
+        typedef typename DESC::VALUE                                   VALUE ;\
+        typedef typename DESC::HUB                                     HUB   ;\
+    };};\
+    template<> struct IVRLTN< ns_name::VIID_##relation_name > : ns_name::IVRLTN_##relation_name {} ;\
+    namespace ns_name { using relation_name = IVRLTN< VIID_##relation_name >
+
+
+VD_DEFRELATION_NS(VNALGMESH, VRSliceMeshBoundary, VSPerfTopoGraph, VSMeshVertLine);
 
 
 
