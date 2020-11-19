@@ -1,4 +1,4 @@
-#include "asistant.h"
+ï»¿#include "asistant.h"
 
 
 
@@ -13,10 +13,10 @@ void v3disp(const VFVECTOR3& v)
 
 
 
-// Ğ´Ò»¸ö½Ó¿Ú£¬½«¾ØÕóÊı¾İ±£´æµ½.datÎÄ¼şÖĞ£¬·½±ãpython¶ÁÈ¡È»ºó»­Í¼
+// å†™ä¸€ä¸ªæ¥å£ï¼Œå°†çŸ©é˜µæ•°æ®ä¿å­˜åˆ°.datæ–‡ä»¶ä¸­ï¼Œæ–¹ä¾¿pythonè¯»å–ç„¶åç”»å›¾
 void writeData2D(const VectorXd& x, const VectorXd& y, const char* filename)
 {
-	// Ë³Ğò°¤¸öĞ´ÈëxºÍyÏòÁ¿ÖĞµÄÊı¾İ£¬ÏÈĞ´xÔÙĞ´y£¬ÒòÎªÁ½ÌõÏòÁ¿ÊÇ¶ÔÓ¦µÄ£¬ËùÒÔ¿Ï¶¨Ç°Ò»°ëÊÇx×ø±ê£¬ºóÒ»°ëÊÇy×ø±ê¡£
+	// é¡ºåºæŒ¨ä¸ªå†™å…¥xå’Œyå‘é‡ä¸­çš„æ•°æ®ï¼Œå…ˆå†™xå†å†™yï¼Œå› ä¸ºä¸¤æ¡å‘é‡æ˜¯å¯¹åº”çš„ï¼Œæ‰€ä»¥è‚¯å®šå‰ä¸€åŠæ˜¯xåæ ‡ï¼Œåä¸€åŠæ˜¯yåæ ‡ã€‚
 	double darr1[MAXLEN];
 	double darr2[MAXLEN];
 	unsigned int size = x.rows();
@@ -26,7 +26,7 @@ void writeData2D(const VectorXd& x, const VectorXd& y, const char* filename)
 	auto iter = find(str1.begin(), str1.end(), '.');
 	if (iter == str1.end())
 	{
-		cout << "´íÎó£¬Êä³öµÄ¶ş½øÖÆÎÄ¼ş±ØĞëÓĞºó×ºÃû¡£" << endl;
+		cout << "é”™è¯¯ï¼Œè¾“å‡ºçš„äºŒè¿›åˆ¶æ–‡ä»¶å¿…é¡»æœ‰åç¼€åã€‚" << endl;
 		return;
 	}
 
@@ -59,11 +59,11 @@ void writeData2D(const VectorXd& x, const VectorXd& y, const char* filename)
 void readData(VectorXd& x, const char* filename)
 {
 	ifstream file(filename, ios::in | ios::binary);
-	file.seekg(0, file.end);					// ×·Ëİµ½ÎÄ¼şÁ÷µÄÎ²²¿
-	unsigned int size = file.tellg();			// »ñÈ¡ÎÄ¼şÁ÷µÄ³¤¶È¡£
-	file.seekg(0, file.beg);					// »Øµ½ÎÄ¼şÁ÷µÄÍ·²¿	
+	file.seekg(0, file.end);					// è¿½æº¯åˆ°æ–‡ä»¶æµçš„å°¾éƒ¨
+	unsigned int size = file.tellg();			// è·å–æ–‡ä»¶æµçš„é•¿åº¦ã€‚
+	file.seekg(0, file.beg);					// å›åˆ°æ–‡ä»¶æµçš„å¤´éƒ¨	
 
-	// ÕâÒ»¿éÒÔºó¿¼ÂÇÓÃalloctor¸ÄĞ´
+	// è¿™ä¸€å—ä»¥åè€ƒè™‘ç”¨alloctoræ”¹å†™
 	char* pc = (char*)malloc(size);
 	file.read(pc, size);
 
@@ -95,3 +95,148 @@ void readOBJ()
 
 }
 
+
+
+void OBJWriteSimpleMesh(const char* pszFileName, const VSSimpleMeshF& mesh)
+{
+	std::ofstream dstFile(pszFileName);
+
+	unsigned nSize = mesh.nVertCount;
+
+	for (unsigned j = 0; j < nSize; j++)
+	{
+		char szBuf[256] = { 0 };
+		VFVECTOR3 vert = mesh.pVertices[j];
+		sprintf_s(szBuf, 256, "v %f %f %f", vert.x, vert.y, vert.z);
+		dstFile << szBuf << "\n";
+	}
+
+	nSize = mesh.nTriangleCount;
+	for (unsigned j = 0; j < nSize; ++j)
+	{
+		char szBuf[256] = { 0 };
+		const VNVECTOR3UI& tri = mesh.pTriangles[j];
+		sprintf_s(szBuf, 256, "f %d %d %d", tri.x + 1, tri.y + 1, tri.z + 1);
+		dstFile << szBuf << "\n";
+	}
+}
+
+
+
+void OBJReadSimpMesh(VSSimpleMeshF& tooth, const char* pszFileName)
+{
+	std::memset(&tooth, 0, sizeof(VSSimpleMeshF));
+	std::vector<VFVECTOR3> vVerts;
+	std::vector<VNVECTOR3UI> vSurfs;
+
+	OBJReadFile(vVerts, vSurfs, pszFileName);
+	tooth.nVertCount = vVerts.size();
+	tooth.nTriangleCount = vSurfs.size();
+	VFVECTOR3* pVerts = new VFVECTOR3[tooth.nVertCount];
+	VNVECTOR3UI* pSurfs = new VNVECTOR3UI[tooth.nTriangleCount];
+	std::memcpy(pVerts, &vVerts[0], sizeof(VFVECTOR3) * tooth.nVertCount);
+	std::memcpy(pSurfs, &vSurfs[0], sizeof(VNVECTOR3UI) * tooth.nTriangleCount);
+	tooth.pVertices = pVerts;
+	tooth.pTriangles = pSurfs;
+}
+
+
+void OBJReadFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurfs, const char* pszFileName)
+{
+	char* pTmp = NULL;
+	std::ifstream ifs(pszFileName);//cube bunny Eight
+	if (false == ifs.is_open())
+	{
+		return;
+	}
+	std::streampos   pos = ifs.tellg();     //   save   current   position   
+	ifs.seekg(0, std::ios::end);
+	unsigned fileLen = (unsigned)ifs.tellg();
+	if (0 == fileLen)
+	{
+		return;
+	}
+	ifs.seekg(pos);     //   restore   saved   position   
+	char* pFileBuf = new char[fileLen + 1];
+	std::memset(pFileBuf, 0, fileLen + 1);
+	ifs.read(pFileBuf, fileLen);
+	char tmpBuffer[1024];
+	unsigned nMaxSize = 1024;
+	pTmp = pFileBuf;
+	unsigned nReadLen = 0;
+	unsigned nRet = 0;
+
+	while (nReadLen < fileLen)
+	{
+		nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+		if (0 == nRet)
+			break;
+
+		if (std::strcmp(tmpBuffer, "v") == 0)
+		{
+			VFVECTOR3 vert;
+			nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+			if (0 == nRet)
+				break;
+			vert.x = (float)atof(tmpBuffer);
+			nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+			if (0 == nRet)
+				break;
+			vert.y = (float)atof(tmpBuffer);
+			nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+			if (0 == nRet)
+				break;
+			vert.z = (float)atof(tmpBuffer);
+			vVerts.push_back(vert);
+		}
+		else if (std::strcmp(tmpBuffer, "f") == 0)
+		{
+			VNVECTOR3UI surf;
+			nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+			if (0 == nRet)
+				break;
+			surf.x = atoi(tmpBuffer) - 1;
+			nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+			if (0 == nRet)
+				break;
+			surf.y = atoi(tmpBuffer) - 1;
+
+			nRet = ReadNextValidData(pTmp, nReadLen, tmpBuffer, nMaxSize);
+			if (0 == nRet)
+				break;
+			surf.z = atoi(tmpBuffer) - 1;
+			vSurfs.push_back(surf);
+		}
+	}
+	delete[] pFileBuf;
+}
+
+
+unsigned ReadNextValidData(char* & pszBuf, unsigned& nCount, char* validData, const unsigned nMaxSize)
+{
+	unsigned nIndx = 0;
+
+	while ((pszBuf[0] == ' ') ||
+		(pszBuf[0] == '\n') ||
+		(pszBuf[0] == '\t') ||
+		(pszBuf[0] == '\r'))
+	{
+		pszBuf++;
+		nCount++;
+	}
+
+	while ((pszBuf[0] != ' ') &&
+		(pszBuf[0] != '\n') &&
+		(pszBuf[0] != '\t') &&
+		(pszBuf[0] != '\r') &&
+		(pszBuf[0] != '\null') &&
+		(pszBuf[0] != 0) &&
+		(nIndx < nMaxSize))
+	{
+		validData[nIndx++] = pszBuf[0];
+		pszBuf++;
+		nCount++;
+	}
+	validData[nIndx] = 0;
+	return nIndx;
+}
