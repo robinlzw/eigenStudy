@@ -20,6 +20,9 @@
 #include "./Common/obj/tisysbak.h"		// 提供了TVR2BBase<>类模板，TVR2B<>类模板等
 #include "./Common/obj/alg/ialgmeshrayintersection.h"		// 提供了射线测距类IVMeshRayIntersection
 #include "vfray.h"			// VFRay类
+#include "./Common/obj/lsalgtools/ilsalgtoolsperfmesh.h"	// 提供了NM_PMMESH::VSMesh类
+#include "./Common/obj/alg/ialgobjectcontainerproxy.h"		// VCProxy类
+#include "./Algorithm/LibStatic/lsalgobjectcontainerproxy/lsalgobjectcontainerproxy.h"
  
 
 

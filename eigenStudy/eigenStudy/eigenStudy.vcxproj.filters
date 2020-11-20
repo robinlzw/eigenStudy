@@ -33,7 +33,7 @@
     <ClCompile Include="projectDS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="macroAnalyse.cpp">
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgobjectcontainerproxy\lsalgobjectcontainerproxy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

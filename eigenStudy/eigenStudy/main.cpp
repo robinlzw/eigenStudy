@@ -267,6 +267,7 @@ void example2()
 }
 
 
+
 // example3——主成分分析确定椭圆主轴
 void example3()
 {
@@ -278,7 +279,7 @@ void example3()
 
 int main()
 {
-	PDS::test2();
+	PDS::test10();
 
 	getchar();
 	return 0;

@@ -271,19 +271,7 @@ void test9()
 // ≤‚ ‘…‰œﬂºÏ≤‚¿‡£∫
 void test10() 
 {
-	NMALG_MESHRAYINTERSECTION::VSMeshRayIntersectInput rayIn;		
-	NMALG_MESHRAYINTERSECTION::VSMeshRayIntersectOutput	rayOut;
-	NMALG_MESHRAYINTERSECTION::IVMeshRayIntersection* pRay = NULL;
 
-
-	VSSimpleMeshF	tooth;
-	v3disp(VFVECTOR3(1,2,3));
-
-
-
-
-
-	
 
 }
 
