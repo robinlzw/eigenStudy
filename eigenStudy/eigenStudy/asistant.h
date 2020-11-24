@@ -22,9 +22,13 @@
 #include "vfray.h"			// VFRay类
 #include "./Common/obj/lsalgtools/ilsalgtoolsperfmesh.h"	// 提供了NM_PMMESH::VSMesh类
 #include "./Common/obj/alg/ialgobjectcontainerproxy.h"		// VCProxy类
-#include "./Algorithm/LibStatic/lsalgobjectcontainerproxy/lsalgobjectcontainerproxy.h"
- 
+#include "./Common/pkg/ldobjectcontainer.h"
 
+
+
+#pragma comment(lib, "lsalgtools.lib")							// 提供了一些OBJ文件读写的接口
+#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgtools.lib的依赖库
+#pragma comment(lib, "ldobjectcontainer.lib")					// 动态库导入lib
 
 
 
@@ -63,13 +67,17 @@
 
 #define MAXLEN 1024
 
+
+template <typename T>
+void vndisp(const VNVector3<T>& v)
+{
+	std::cout << "(" << v.x << ", " << v.y << ", " << v.z << ")" << std::endl;
+}
+
+
 void v3disp(const VFVECTOR3& v);
 void writeData2D(const Eigen::VectorXd& x, const Eigen::VectorXd& y, const char* filename);
 void readData(Eigen::VectorXd& x, const char* filename);
 void writeData3D();
 void writeOBJ();
 void readOBJ();
-void OBJReadSimpMesh(VSSimpleMeshF& tooth, const char* pszFileName);
-void OBJWriteSimpleMesh(const char* pszFileName, const VSSimpleMeshF& mesh);
-void OBJReadFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurfs, const char* pszFileName);
-unsigned ReadNextValidData(char* & pszBuf, unsigned& nCount, char* validData, const unsigned nMaxSize);

@@ -19,13 +19,14 @@ namespace PDS
 //		可以修改simplemesh表示的三维网格数据吗。
 void test1()
 {
+	VSSimpleMeshF tooth;
+	OBJReadSimpMesh(tooth, "tooth.obj");
 
+	OBJWriteSimpleMesh("toothCopy.obj", tooth);
 
-
-
-
+	cout << "finished." << endl;
 }
-
+	
 
 
 
@@ -271,6 +272,96 @@ void test9()
 // 测试射线检测类：
 void test10() 
 {
+	NMALG_OBJECTCONTAINERPROXY::VCProxy::Initialize();
+	NMALG_OBJECTCONTAINERPROXY::VCProxy objproxy;
+
+	NMALG_MESHRAYINTERSECTION::VSMeshRayIntersectInput rayIn;
+	NMALG_MESHRAYINTERSECTION::VSMeshRayIntersectOutput	rayOut;
+	NMALG_MESHRAYINTERSECTION::IVMeshRayIntersection* pRay = (NMALG_MESHRAYINTERSECTION::IVMeshRayIntersection*)objproxy.CreateObj(OBJ_MESHRAYINTERSECTION_GEN_E);;
+
+
+	VSSimpleMeshF	tooth, tooth1;
+	OBJReadSimpMesh(tooth, "tooth.obj");
+	OBJReadSimpMesh(tooth1, "tooth_01.obj");
+
+	typedef NM_PMMESH::VSMesh VSMesh;
+	VSMesh vmesh(tooth);
+	VSMesh vmesh1(tooth1);
+
+
+	// 求两个网格中心点。
+	VFVECTOR3 center(0, 0, 0), center1(0, 0, 0);
+	for (int i = 0; i<tooth.nVertCount; i++)
+	{
+		center += tooth.pVertices[i];
+	}
+	center /= tooth.nTriangleCount;
+
+	for (int i = 0; i<tooth1.nVertCount; i++)
+	{
+		center1 += tooth1.pVertices[i];
+	}
+	center1 /= tooth1.nTriangleCount;
+
+
+	// 确定测量方向————应该是光源指向被测量物体
+	VFVECTOR3 dir = center1 - center;
+	dir.Normalize();
+
+
+	// 生成射线对象的buffer：
+	vector<VFRay> vec_ray;
+	VSConstBuffer<VFRay> buffer_ray;
+	for (int i = 0; i < tooth.nVertCount; i++)
+	{
+		VFRay rayTemp(tooth.pVertices[i], dir);
+		vec_ray.push_back(rayTemp);
+	}
+	buffer_ray = VD_V2CB(vec_ray);
+
+
+
+
+	// 构造射线测距过程的输入对象。
+	rayIn.simpMesh = tooth1;
+	rayIn.rays = buffer_ray;
+
+	// 执行射线测距过程
+	pRay->Build(rayOut, rayIn);
+
+
+	// 解析射线测距输出对象：
+	/*
+	VSConstBuffer<VSConstBuffer<float>>, cbRayLen				射线正方向与网格交点：ray.origin + ray.direction * len
+	VSConstBuffer<VSConstBuffer<unsigned>>, cbSurfIdx			？？？射线正方向与网格相交的网格上的顶点索引，与cbRayLen一一对应
+	VSConstBuffer<VSConstBuffer<float>>, cbOpRayLen				射线反方向与网格交点：ray.origin + ray.direction * len
+	VSConstBuffer<VSConstBuffer<unsigned>>, cbOpSurfIdx			射线反方向与网格相交的三角片，与cbOpRayLen一一对应
+	*/
+	const VSConstBuffer<float>* pcf = NULL;
+	const VSConstBuffer<unsigned>* pcu = NULL;
+	cout << "tooth.nVertCount == " << tooth.nVertCount << endl;
+	cout << "rayOut.cbRayLen.len == " << rayOut.cbRayLen.len << endl;
+
+	pcf = &rayOut.cbRayLen.pData[0];					// 第一个点测距后得到的距离数据。是float的Vbuffer
+
+														//		正向射线穿过目标网格，有两个交点——位于前表面、后表面。
+	cout << "正向射线和目标网格交点个数 == " << pcf->len << endl;
+	cout << "测得距离分别为：" << pcf->pData[0] << ", " << pcf->pData[1] << endl;
+
+
+	//		反向射线没有穿过目标网格：
+	pcf = &rayOut.cbOpRayLen.pData[0];
+	cout << "反向射线和目标网格交点个数 == " << pcf->len << endl;
+
+
+	//		正向射线和目标网格交点所在的三角片：
+	pcu = &rayOut.cbSurfIdx.pData[0];				// 第一个点测距后得到的三角片数据。
+	cout << "tooth1.nTriangleCount == " << tooth1.nTriangleCount << endl;
+	cout << "正向射线和目标网格交点个数 == " << pcu->len << endl;
+	cout << "交点在目标网格上的所在的三角片索引分别为：" << pcu->pData[0] << ", " << pcu->pData[1] << endl;
+	VNVector3<unsigned> vn;
+	vn = tooth1.pTriangles[pcu->pData[0]];
+	vndisp<unsigned>(vn);
 
 
 }
