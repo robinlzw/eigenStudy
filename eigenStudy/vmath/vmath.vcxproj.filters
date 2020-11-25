@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="vfmatrix4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="vfvector2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="vfvector3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="vfvector4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="xnamathconvert.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="xnamathmatrix.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="xnamathmisc.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="xnamathvector.inl">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tmplenum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfaabb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfmatrix3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfmatrix4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfplane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfquaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfsphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfvector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfvector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfvector4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vmath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vmathpredef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vshared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xnamath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vnvector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vflocation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vnrect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfrect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vflineseg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfrayseg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vf2dlineseg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfsegdeg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfasthashcompare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vcryptx5tablecreator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vflargevector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfsparsematrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VAlgBiCGSTAB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfarealcoord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mrk_math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vfmesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vtopomesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vtopoutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vf2dlocation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VDbg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="vfmatrix3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfplane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfquaternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfvector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfvector3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfvector4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VLocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vmath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfaabb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vfasthashcompare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vf2dlocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

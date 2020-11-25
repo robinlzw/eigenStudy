@@ -279,7 +279,7 @@ void example3()
 
 int main()
 {
-	PDS::test10();
+	PDS::test1();
 
 	getchar();
 	return 0;

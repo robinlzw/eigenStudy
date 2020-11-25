@@ -15,14 +15,16 @@ namespace PDS
 {
 
 
-// 工作项目
-//		可以修改simplemesh表示的三维网格数据吗。
+// 测试VSSimpleMeshF类：
+/*
+	是一个行为像指针的类。
+*/
 void test1()
 {
-	VSSimpleMeshF tooth;
-	OBJReadSimpMesh(tooth, "tooth.obj");
+	VSSimpleMeshF tooth, tooth1;
+	tooth1 = tooth;
 
-	OBJWriteSimpleMesh("toothCopy.obj", tooth);
+
 
 	cout << "finished." << endl;
 }

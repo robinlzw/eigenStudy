@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="ticmn.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="dstrm.inl">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="accsr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cllct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tiaccsr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ticmn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="memleakchk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tilibldr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tiaccfrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="strm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dstrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vstd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tisvr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pttrn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="guid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tidyn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tidyncomb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="appinput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tisys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tielem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="memleakchk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
