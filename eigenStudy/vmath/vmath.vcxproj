@@ -139,7 +139,7 @@
     <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseStatic|Win32'">
     <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
