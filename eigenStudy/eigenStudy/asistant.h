@@ -2,34 +2,44 @@
 
 #include <iostream>
 #include <fstream>
-#include <Eigen\Dense>		// 需要把eigen的目录添加到包含目录中。
 #include <vector>
 #include <string>
 #include <type_traits>
 #include <memory>
 
-#include "vfvector3.h"		// 提供了三维空间向量类VFVECTOR3
-#include "vfmesh.h"			// 提供了三维网格的几种数据结构。
-#include "vfquaternion.h"	// 提供了四元数类
-#include "vflocation.h"		// 提供了实施局部/全局坐标系转换的类VFLocation
-#include "obj.h"			// 提供了一堆接口类。
-#include "mem.h"			// 提供了VSConstBuffer类
-#include "ticmn.h"			// 提供了处理VSConstBuffer等类型数据的函数。
-#include "pttrn.h"			// 一些常用的模式
-#include "strm.h"			// 提供了TVPersist, TVFilePersist, TVBuilderArgTuple等类模板
-#include "./Common/obj/tisysbak.h"		// 提供了TVR2BBase<>类模板，TVR2B<>类模板等
-#include "./Common/obj/alg/ialgmeshrayintersection.h"		// 提供了射线测距类IVMeshRayIntersection
-#include "vfray.h"			// VFRay类
-#include "./Common/obj/lsalgtools/ilsalgtoolsperfmesh.h"	// 提供了NM_PMMESH::VSMesh类
-#include "./Common/obj/alg/ialgobjectcontainerproxy.h"		// VCProxy类
+
+
+#include "vstd.h"
+#pragma comment(lib, "vstd.lib")
+
+
+#include "vmath.h"
+#pragma comment(lib, "vmath.lib")							// 包含很多自定义的基础数学类型——如四元数类，向量类等。
+
+
+#include "./Common/obj/lsalgtools/ilsalgtools.h"
+#include "./Common/obj/lsalgtools/ilsalgtoolsperfmesh.h"
+#include "./Common/obj/lsalgtools/lsalgobjfile.h"
+#include "./Common/obj/lsalgtools/profile.h"
+#include "./Common/obj/lsalgtools/triangle.h"
+#include "./Common/obj/lsalgtools/VDDenseMatrix.h"
+#include "./Common/obj/lsalgtools/VDSparseMatrix.h"
+#pragma comment(lib, "lsalgtools.lib")							// 提供了一些OBJ文件读写的接口，VSMesh类，
+
+
+#include "./Common/obj/alg/ialgobjectcontainerproxy.h"			
+#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgtools.lib的依赖库， 包含VCProxy类
+
+
 #include "./Common/pkg/ldobjectcontainer.h"
-
-
-
-#pragma comment(lib, "lsalgtools.lib")							// 提供了一些OBJ文件读写的接口
-#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgtools.lib的依赖库
 #pragma comment(lib, "ldobjectcontainer.lib")					// 动态库导入lib
 
+
+#include "./Common/obj/alg/ialgmeshrayintersection.h"			// 提供了射线测距类IVMeshRayIntersection？？？目前不知道被包含在哪个库里。
+
+
+#pragma comment(lib, "ldck4cce.lib")
+#pragma comment(lib, "ldwzkupdater.lib")
 
 
 
@@ -67,6 +77,8 @@
 
 #define MAXLEN 1024
 
+
+// 函数声明——————自己写的一些辅助函数
 
 template <typename T>
 void vndisp(const VNVector3<T>& v)

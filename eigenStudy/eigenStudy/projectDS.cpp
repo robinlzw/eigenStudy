@@ -18,17 +18,55 @@ namespace PDS
 // 测试VSSimpleMeshF类：
 /*
 	是一个行为像指针的类。
+	指向的数据实体是NM_PMMESH::VSMesh对象。
 */
 void test1()
 {
-	VSSimpleMeshF tooth, tooth1;
-	tooth1 = tooth;
+	VSSimpleMeshF mesh1, mesh2, tooth;
 
+	generateMeshWrong(mesh1);
+	generateMeshRight(mesh2);
+
+	v3disp(mesh1.pVertices[0]);			// 栈网格对象在Wrong()函数结束之后生命周期结束，然后被释放，mesh1指针变成野指针。
+	v3disp(mesh2.pVertices[0]);			// 堆网格对象在Right()函数结束之后依然存在。
+
+
+	delete[] mesh1.pVertices;
+	delete[] mesh2.pVertices;
+
+	OBJReadSimpMesh(tooth, "tooth.obj");			// 读取OBJ文件，返回simpleMesh网格指针对象，网格数据实体在堆上。
 
 
 	cout << "finished." << endl;
 }
 	
+
+
+// 函数体内生成栈上网格对象，输出网格指针的函数————错误示范
+bool generateMeshWrong(VSSimpleMeshF& mesh) 
+{
+
+	NM_PMMESH::VSMesh vmesh;
+	vmesh.vVertice.push_back(VFVECTOR3(1,2,3));
+
+	PMGetSimpMesh(mesh, vmesh);
+
+	return true;
+}
+
+
+// 函数体内生成堆上的网格对象，输出网格指针的函数——正确示范
+bool generateMeshRight(VSSimpleMeshF& mesh) 
+{
+	NM_PMMESH::VSMesh* pmesh = new NM_PMMESH::VSMesh;
+
+	pmesh->vVertice.push_back(VFVECTOR3(1, 2, 3));
+
+	PMGetSimpMesh(mesh, *pmesh);
+	return true;
+
+}
+
 
 
 
@@ -269,6 +307,8 @@ void test9()
 {
 
 }
+
+
 
 
 // 测试射线检测类：

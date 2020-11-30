@@ -24,4 +24,8 @@ namespace PDS
 	void test15();
 	void test16();
 
+
+	bool generateMeshWrong(VSSimpleMeshF& mesh);
+	bool generateMeshRight(VSSimpleMeshF& mesh);
+
 }

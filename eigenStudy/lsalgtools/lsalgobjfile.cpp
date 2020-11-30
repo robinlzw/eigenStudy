@@ -38,6 +38,8 @@ void OBJWriteToothMesh(const VSConstBuffer<VSTooth> & teeth, const std::string& 
 	}
 }
 
+
+
 void OBJAppendSimpleMesh(std::ofstream& dstFile, const unsigned nOffset, const VSSimpleMeshF& mesh)
 {
 	unsigned nSize = mesh.nVertCount;
@@ -60,6 +62,8 @@ void OBJAppendSimpleMesh(std::ofstream& dstFile, const unsigned nOffset, const V
 		dstFile << szBuf << "\n";
 	}
 }
+
+
 
 void OBJWriteSimpleMesh(const char* pszFileName, const VSSimpleMeshF& mesh)
 {
@@ -85,6 +89,8 @@ void OBJWriteSimpleMesh(const char* pszFileName, const VSSimpleMeshF& mesh)
 	}
 }
 
+
+
 void OBJWritePerfectMesh(const char* pszFileName, const VSPerfectMesh& mesh)
 {
 	std::ofstream dstFile(pszFileName);
@@ -108,7 +114,10 @@ void OBJWritePerfectMesh(const char* pszFileName, const VSPerfectMesh& mesh)
 		dstFile << szBuf << "\n";
 	}
 }
-/////////////////////////////////////////////////////////////////////////
+
+
+
+ 
 unsigned ReadNextValidData(char* & pszBuf, unsigned& nCount, char* validData, const unsigned nMaxSize)
 {
 	unsigned nIndx = 0;
@@ -137,6 +146,8 @@ unsigned ReadNextValidData(char* & pszBuf, unsigned& nCount, char* validData, co
 	validData[nIndx] = 0;
 	return nIndx;
 }
+
+
 
 void OBJReadJawFile(VSJaw& jaw, const char* pszFileName)
 {
@@ -298,6 +309,10 @@ void OBJReadJawFile(VSJaw& jaw, const char* pszFileName)
 	}
 }
 
+
+
+
+// OBJReadSimpMesh()——读取OBJ文件，返回simpleMesh网格指针对象，网格数据实体在堆上。
 void OBJReadSimpMesh(VSSimpleMeshF& tooth, const char* pszFileName)
 {	
 	std::memset(&tooth, 0, sizeof(VSSimpleMeshF));
@@ -314,6 +329,8 @@ void OBJReadSimpMesh(VSSimpleMeshF& tooth, const char* pszFileName)
 	tooth.pVertices = pVerts;
 	tooth.pTriangles = pSurfs;
 }
+
+
 
 void OBJReadFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurfs, const char* pszFileName)
 {
@@ -385,6 +402,9 @@ void OBJReadFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurf
 	delete[] pFileBuf;
 }
 
+
+
+
 void OBJReadVertices(std::vector<VFVECTOR3>& vertices, const char* pszFileName)
 {
 	char* pTmp = NULL;
@@ -440,6 +460,8 @@ void OBJReadVertices(std::vector<VFVECTOR3>& vertices, const char* pszFileName)
 	}
 	delete[] pFileBuf;
 }
+
+
 
 void WriteCrowns(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 	std::ofstream& dstFile)
