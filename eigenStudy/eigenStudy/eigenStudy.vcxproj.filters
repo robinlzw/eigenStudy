@@ -18,60 +18,21 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\projectStudy\Base\vmath\vfquaternion.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="asistant.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\projectStudy\Base\vmath\vfvector3.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="projectDS.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgobjectcontainerproxy\lsalgobjectcontainerproxy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfdef.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfangle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vmathpredef.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vstd\dstrm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfvector3.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfmesh.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vfquaternion.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vmath\vflocation.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="projectDS.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="asistant.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Base\vstd\strm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\projectStudy\Common\obj\tisysbak.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,6 +17,15 @@
 #pragma comment(lib, "vmath.lib")							// 包含很多自定义的基础数学类型——如四元数类，向量类等。
 
 
+
+#include "./Common/pkg/ldck4cce.h"
+#pragma comment(lib, "ldck4cce.lib")
+
+
+#include "./Common/pkg/ldwzkupdater.h"
+#pragma comment(lib, "ldwzkupdater.lib")
+
+
 #include "./Common/obj/lsalgtools/ilsalgtools.h"
 #include "./Common/obj/lsalgtools/ilsalgtoolsperfmesh.h"
 #include "./Common/obj/lsalgtools/lsalgobjfile.h"
@@ -28,18 +37,29 @@
 
 
 #include "./Common/obj/alg/ialgobjectcontainerproxy.h"			
-#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgtools.lib的依赖库， 包含VCProxy类
+#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// 包含VCProxy类
 
 
 #include "./Common/pkg/ldobjectcontainer.h"
 #pragma comment(lib, "ldobjectcontainer.lib")					// 动态库导入lib
 
 
-#include "./Common/obj/alg/ialgmeshrayintersection.h"			// 提供了射线测距类IVMeshRayIntersection？？？目前不知道被包含在哪个库里。
+//#include "./Common/obj/alg/ialgmeshrayintersection.h"			// 提供了射线测距类IVMeshRayIntersection？？？目前不知道被包含在哪个库里。
+#include "./lsalgmeshrayintersection/lsalgmeshrayintersection.h"
+#pragma comment(lib, "lsalgmeshrayintersection.lib")
 
 
-#pragma comment(lib, "ldck4cce.lib")
-#pragma comment(lib, "ldwzkupdater.lib")
+
+#include "ldteethprocess/lsalgteethprocess.h"
+#include "./Common/pkg/ldteethprocess.h"
+#pragma comment(lib, "ldteethprocess.lib")						// 切牙库，提供了VBCollisionSence
+
+
+
+#include "lsalgmeshsimplify2/lsalgmeshsimplify2.h"
+#pragma comment(lib, "lsalgmeshsimplify2.lib")
+
+
 
 
 

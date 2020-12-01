@@ -17,7 +17,7 @@ namespace PDS
 
 // 测试VSSimpleMeshF类：
 /*
-	是一个行为像指针的类。
+	是一个行为像指针的类，和VSConstBuffer类似。
 	指向的数据实体是NM_PMMESH::VSMesh对象。
 */
 void test1()
@@ -66,6 +66,8 @@ bool generateMeshRight(VSSimpleMeshF& mesh)
 	return true;
 
 }
+
+
 
 
 
@@ -302,9 +304,18 @@ void test8()
 
 
 
-// 测试碰撞检测类
+
+
+// 测试碰撞检测类VBCollisionSence
 void test9() 
 {
+	VGlEnvCreator<4, 5> m_GLCreator;
+	std::shared_ptr< TVExtSysUser< VNCollisionTest::VRCollisionExtCreator > > m_SysUserCollisionTestCreator;
+	VSESS< VNCollisionTest::VRCollisionExt >  m_EssSysCollisionTest;
+	m_SysUserCollisionTestCreator.reset(new TVExtSysUser< VNCollisionTest::VRCollisionExtCreator >(*m_GLCreator.m_pGl));
+	m_SysUserCollisionTestCreator->Elapse([&m_EssSysCollisionTest](const VSESS< VNCollisionTest::VRCollisionExt > & ess) {
+		m_EssSysCollisionTest = ess;
+	});
 
 }
 
