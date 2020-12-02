@@ -2,12 +2,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
-// The following ifdef block is the standard way of creating macros which make exporting 
-// from a DLL simpler. All files within this DLL are compiled with the LDCKUPDATER_EXPORTS
-// symbol defined on the command line. This symbol should not be defined on any project
-// that uses this DLL. This way any other project whose source files include this file see 
-// LDCKUPDATER_API functions as being imported from a DLL, whereas this DLL sees symbols
-// defined with this macro as being exported.
+
+
 
 #ifdef LDOBJECTCONTAINER_EXPORTS
 #define LDOBJECTCONTAINER_API  __declspec(dllexport)
@@ -16,6 +12,16 @@
 #endif
 
 #include <obj/alg/ialgobjectcontainer.h>
+
+// 提供了生成多种功能类对象的接口，包括射线测距类VSMeshRayIntersection、精简网格类VSMeshsimplify2等
+/*
+	代理类中的caller函数调用了本库中作为回调函数的OBJ_Create(), OBJ_Release()函数。
+	OBJ_Create()可以生成各种功能类对象。
+	具体可以生成的功能类对象参考枚举类型enum E_OBJ_TYPE
+
+*/
+
+
 
 #ifdef __cplusplus
 	extern "C" {

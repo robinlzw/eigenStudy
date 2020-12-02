@@ -50,15 +50,15 @@
 
 
 
-#include "ldteethprocess/lsalgteethprocess.h"
-#include "./Common/pkg/ldteethprocess.h"
-#pragma comment(lib, "ldteethprocess.lib")						// 切牙库，提供了VBCollisionSence
-
-
-
-#include "lsalgmeshsimplify2/lsalgmeshsimplify2.h"
-#pragma comment(lib, "lsalgmeshsimplify2.lib")
-
+//#include "ldteethprocess/lsalgteethprocess.h"
+//#include "./Common/pkg/ldteethprocess.h"
+//#pragma comment(lib, "ldteethprocess.lib")						// 切牙库，提供了VBCollisionSence
+//
+//
+//
+//#include "lsalgmeshsimplify2/lsalgmeshsimplify2.h"
+//#pragma comment(lib, "lsalgmeshsimplify2.lib")
+//
 
 
 

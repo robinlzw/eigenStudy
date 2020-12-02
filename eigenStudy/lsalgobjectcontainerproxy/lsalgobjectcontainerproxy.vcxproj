@@ -74,7 +74,7 @@
     <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(Configuration)\;D:\workstation\gitRepositories\projectStudy\Common;$(SolutionDir)</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(Configuration)\;D:\workstation\gitRepositories\projectStudy\Common;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Common\obj\alg;</IncludePath>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\;$(SolutionDir)..\Third_Party\pmp-library\lib\$(Platform)_$(Configuration)\;$(SolutionDir)..\Third_Party\eigen\lib\$(Platform)_$(Configuration)\;$(SolutionDir)$(Configuration)\;$(LibraryPath);D:\workstation\gitRepositories\projectStudy\Third_Party\eigen\lib\Win32_Release;D:\workstation\gitRepositories\projectStudy\Third_Party\pmp-library\lib\Win32_Release;</LibraryPath>
   </PropertyGroup>
@@ -146,7 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ialgobjectcontainerproxy.h" />
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\alg\ialgobjectcontainerproxy.h" />
     <ClInclude Include="lsalgobjectcontainerproxy.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

@@ -309,13 +309,13 @@ void test8()
 // ≤‚ ‘≈ˆ◊≤ºÏ≤‚¿‡VBCollisionSence
 void test9() 
 {
-	VGlEnvCreator<4, 5> m_GLCreator;
-	std::shared_ptr< TVExtSysUser< VNCollisionTest::VRCollisionExtCreator > > m_SysUserCollisionTestCreator;
-	VSESS< VNCollisionTest::VRCollisionExt >  m_EssSysCollisionTest;
-	m_SysUserCollisionTestCreator.reset(new TVExtSysUser< VNCollisionTest::VRCollisionExtCreator >(*m_GLCreator.m_pGl));
-	m_SysUserCollisionTestCreator->Elapse([&m_EssSysCollisionTest](const VSESS< VNCollisionTest::VRCollisionExt > & ess) {
-		m_EssSysCollisionTest = ess;
-	});
+	//VGlEnvCreator<4, 5> m_GLCreator;
+	//std::shared_ptr< TVExtSysUser< VNCollisionTest::VRCollisionExtCreator > > m_SysUserCollisionTestCreator;
+	//VSESS< VNCollisionTest::VRCollisionExt >  m_EssSysCollisionTest;
+	//m_SysUserCollisionTestCreator.reset(new TVExtSysUser< VNCollisionTest::VRCollisionExtCreator >(*m_GLCreator.m_pGl));
+	//m_SysUserCollisionTestCreator->Elapse([&m_EssSysCollisionTest](const VSESS< VNCollisionTest::VRCollisionExt > & ess) {
+	//	m_EssSysCollisionTest = ess;
+	//});
 
 }
 

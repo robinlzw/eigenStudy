@@ -61,7 +61,10 @@ namespace NMALG_OBJECTCONTAINERPROXY
 			MessageBox(NULL, szBuf, L"Smartee", MB_OK); 
 			return;
 		}
-		g_FuncCreateObj = (FUNCCreateObj*)GetProcAddress(g_hObjectcontainer, "OBJ_Create");
+
+		g_FuncCreateObj = (FUNCCreateObj*)GetProcAddress(g_hObjectcontainer, "OBJ_Create");		// 参数1：DLL文件句柄， 参数2：动态库中的函数名。
+
+
 		if (NULL == g_FuncCreateObj)
 		{
 			DWORD dwErr = GetLastError();

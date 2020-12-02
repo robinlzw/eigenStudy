@@ -27,7 +27,7 @@
     <ClInclude Include="lsalgobjectcontainerproxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ialgobjectcontainerproxy.h">
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\alg\ialgobjectcontainerproxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

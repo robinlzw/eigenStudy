@@ -2,6 +2,8 @@
 
 #include <pkg/ldobjectcontainer.h>
 #include <vector>
+
+
 namespace NMALG_OBJECTCONTAINER
 {	
 	class VObjManager
@@ -28,6 +30,8 @@ namespace NMALG_OBJECTCONTAINER
 		void* OBJ_GetDentalarchcurve2();
 		void* OBJ_GetMeshsimplify2();
 		void* OBJ_GetDentalarchcurveNew();
+
+
 	private:
 		std::vector<IVObject*> m_vObj;
 	};

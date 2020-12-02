@@ -12,8 +12,10 @@
 #include <sys/trn50/isyscut.h>
 #include <obj/alg/ialgobjectcontainerproxy.h>
 
+
+
 namespace NMALG_OBJECTCONTAINERPROXY
 {
-	typedef void* (FUNCCreateObj)(const unsigned nObjEnum);
-	typedef void (FUNCReleaseObj)(void* pObj);	
+	typedef void* (FUNCCreateObj)(const unsigned nObjEnum);			// 函数指针
+	typedef void (FUNCReleaseObj)(void* pObj);						// 函数类型，用的时候还是取其指针。
 }
