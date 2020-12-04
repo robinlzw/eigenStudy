@@ -11,6 +11,9 @@ namespace NM_PMMESH
 	
 
 }
+
+
+// PMGetSimpMesh()——获取输入VSMesh网格对应的VSSimpleMeshF，其中不发生数据的拷贝。
 void PMGetSimpMesh(VSSimpleMeshF& out, const NM_PMMESH::VSMesh& mesh)
 {
 	if (mesh.vVertice.size() > 0)
@@ -25,6 +28,9 @@ void PMGetSimpMesh(VSSimpleMeshF& out, const NM_PMMESH::VSMesh& mesh)
 	}
 }
 
+
+
+// PMCopyMesh()——拷贝VSMesh网格对象
 void PMCopyMesh(NM_PMMESH::VSMesh& out, const NM_PMMESH::VSMesh& in)
 {
 	if (in.vVertice.size() > 0)
@@ -39,6 +45,8 @@ void PMCopyMesh(NM_PMMESH::VSMesh& out, const NM_PMMESH::VSMesh& in)
 	}
 }
 
+
+// PMCopyMesh()——从simpleMesh所指的网格对象中拷贝数据到VSMesh对象中。
 void PMCopyMesh(NM_PMMESH::VSMesh& out, const VSSimpleMeshF& in)
 {
 	if (in.nVertCount > 0)
@@ -53,6 +61,9 @@ void PMCopyMesh(NM_PMMESH::VSMesh& out, const VSSimpleMeshF& in)
 	}
 }
 
+
+
+// PMGetCircle2Dim——获得二维环形点集，输入点数，环半径。
 void PMGetCircle2Dim(std::vector<VFVECTOR2>&out, const unsigned nPointCnt, const float flRadius)
 {
 	if (nPointCnt<3)
@@ -67,6 +78,9 @@ void PMGetCircle2Dim(std::vector<VFVECTOR2>&out, const unsigned nPointCnt, const
 		out[i].y = std::sin(flAngle)*flRadius;
 	}
 }
+
+
+// PMMakeLaplaceMatrix()——求出网格对应的laplace矩阵，输入perfectMesh对象，
 void PMMakeLaplaceMatrix(std::vector<VSTripletD>& matLaplace, const VSPerfectMesh& pm, const double dbW)
 {
 	for (unsigned nVIdx = 0; nVIdx < pm.GetVertexCount(); nVIdx++)
@@ -87,6 +101,8 @@ void PMMakeLaplaceMatrix(std::vector<VSTripletD>& matLaplace, const VSPerfectMes
 		}
 	}
 }
+
+
 
 void PMGet1OrderDomain(std::vector<unsigned>& domainOut, const unsigned nVIdx, const VSPerfectMesh& pm)
 {
@@ -936,6 +952,9 @@ void PMMeshTransMove(std::vector<VFVECTOR3>& out,  const VSSimpleMeshF& simpMesh
 		out[i] = simpMesh.pVertices[i] - shift;
 	}
 }
+
+
+
 //////////////////////////////////////////////////////////////////////////
 // 检查网格，移除单独的较小的独立网格，保留顶点最多的网格，保证网格是一个单连通的网格。
 void PMMeshSimplifyConnection(NM_PMMESH::VSMesh& outMesh, const VSPerfectMesh& mesh)

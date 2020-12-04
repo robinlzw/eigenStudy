@@ -14,7 +14,7 @@
 
 
 #include "vmath.h"
-#pragma comment(lib, "vmath.lib")							// 包含很多自定义的基础数学类型——如四元数类，向量类等。
+#pragma comment(lib, "vmath.lib")							// vmath.lib——包含很多自定义的基础数学类型——如四元数类，向量类等。
 
 
 
@@ -33,16 +33,19 @@
 #include "./Common/obj/lsalgtools/triangle.h"
 #include "./Common/obj/lsalgtools/VDDenseMatrix.h"
 #include "./Common/obj/lsalgtools/VDSparseMatrix.h"
-#pragma comment(lib, "lsalgtools.lib")							// 提供了一些OBJ文件读写的接口，VSMesh类，
+#pragma comment(lib, "lsalgtools.lib")							// lsalgtools.lib——提供了一些OBJ文件读写的接口，VSMesh类，
 
 
 #include "./Common/obj/alg/ialgobjectcontainerproxy.h"			
-#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// 包含VCProxy类
+#pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgobjectcontainerproxy.lib——ldobjectcontainer的代理库，包含VCProxy类
 
 
 #include "./Common/pkg/ldobjectcontainer.h"
-#pragma comment(lib, "ldobjectcontainer.lib")					// 动态库导入lib
+#pragma comment(lib, "ldobjectcontainer.lib")					// ldobjectcontainer动态库 
 
+
+#include "./lsalgcutpathgen/lsalgcutpathgen.h"					// lsalgcutpathgen.lib——计算切割路径。
+#pragma comment(lib, "lsalgcutpathgen.h")
 
 //#include "./Common/obj/alg/ialgmeshrayintersection.h"			// 提供了射线测距类IVMeshRayIntersection？？？目前不知道被包含在哪个库里。
 #include "./lsalgmeshrayintersection/lsalgmeshrayintersection.h"

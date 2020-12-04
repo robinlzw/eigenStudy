@@ -46,7 +46,7 @@ namespace NM_PMMESH
 			vSurface.assign(in.vSurface.begin(), in.vSurface.end());
 		}
 
-		//			输入VSSimpleMesh表示的三维网格对象来构造
+		//			输入VSSimpleMesh表示的三维网格对象来构造——其中发生了数据拷贝，返回的VSMesh网格和输入网格是两份独立的数据。
 		VSMesh(const VSSimpleMeshF& in)
 		{
 			if (0 == in.nVertCount)

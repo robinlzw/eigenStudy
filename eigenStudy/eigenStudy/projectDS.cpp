@@ -19,6 +19,9 @@ namespace PDS
 /*
 	是一个行为像指针的类，和VSConstBuffer类似。
 	指向的数据实体是NM_PMMESH::VSMesh对象。
+	20201203：
+			目前感觉simpleMesh作为一个pointer-like类并没有设计得足够完善，没有实现引用计数，也没有定义包含delete操作的析构函数。
+			常用的在程序中创建三维网格实体的方法是使用OBJReadSimpMesh()接口，生成的是堆对象。由于simpleMesh不会自动delete，使用起来有风险。目前考虑用其他方法从文件中读取网格数据。
 */
 void test1()
 {
@@ -123,6 +126,7 @@ void test2()
 
 	numi = 888;
 	cout << "*pData == " << *ibuffer.pData << endl;
+
 
 
 

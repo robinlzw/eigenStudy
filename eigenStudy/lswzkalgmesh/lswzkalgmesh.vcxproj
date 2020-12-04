@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugStatic|Win32">
+      <Configuration>DebugStatic</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugStatic|x64">
+      <Configuration>DebugStatic</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2B0F134E-F363-48D5-9EAD-44A482AB6259}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>lswzkalgmesh</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugStatic|Win32'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugStatic|x64'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
+    <IncludePath>$(IncludePath);$(SolutionDir)..\Common;$(SolutionDir)..\Common\obj;$(SolutionDir)..\Base;$(SolutionDir)..\Third_Party;</IncludePath>
+    <LibraryPath>$(SolutionDir)..\$(Platform)_$(Configuration)\;$(SolutionDir)..\lib\$(Platform)_$(Configuration)\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(Configuration)\;D:\workstation\gitRepositories\projectStudy\Common;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Common\obj;D:\workstation;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\lswzkalgmesh</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration)\</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)..\Common;$(SolutionDir)..\Common\obj;$(SolutionDir)..\Base;$(SolutionDir)..\Third_Party;</IncludePath>
+    <LibraryPath>$(SolutionDir)..\$(Platform)_$(Configuration)\;$(SolutionDir)..\lib\$(Platform)_$(Configuration)\;$(LibraryPath);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)..\Common;$(SolutionDir)..\Common\obj;$(SolutionDir)..\Base;$(SolutionDir)..\Third_Party;</IncludePath>
+    <LibraryPath>$(SolutionDir)..\$(Platform)_$(Configuration)\;$(SolutionDir)..\lib\$(Platform)_$(Configuration)\;$(LibraryPath);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugStatic|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)..\Third_Party;</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugStatic|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)..\Third_Party;</IncludePath>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>VLIBEXPFUNCNAME=vf_$(ProjectName)_get_system;_HAS_EXCEPTIONS=0;NOMINMAX;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>VLIBEXPFUNCNAME=vf_$(ProjectName)_get_system;_HAS_EXCEPTIONS=0;NOMINMAX;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OmitFramePointers>false</OmitFramePointers>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling />
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>VLIBEXPFUNCNAME=vf_$(ProjectName)_get_system;_HAS_EXCEPTIONS=0;NOMINMAX;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>VLIBEXPFUNCNAME=vf_$(ProjectName)_get_system;_HAS_EXCEPTIONS=0;NOMINMAX;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OmitFramePointers>false</OmitFramePointers>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Complex.h" />
+    <ClInclude Include="FDIparams.h" />
+    <ClInclude Include="HalfEdge.h" />
+    <ClInclude Include="HEEdge.h" />
+    <ClInclude Include="HEFace.h" />
+    <ClInclude Include="HEMesh.h" />
+    <ClInclude Include="HEMeshConstruct.h" />
+    <ClInclude Include="HEVertex.h" />
+    <ClInclude Include="innerinterf.h" />
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Type.h" />
+    <ClInclude Include="VBBitTree.h" />
+    <ClInclude Include="VBCheckedMeshCmp.h" />
+    <ClInclude Include="VBCLERSDecode.h" />
+    <ClInclude Include="VBCLERSEncode.h" />
+    <ClInclude Include="VBConnectivityCheck.h" />
+    <ClInclude Include="VBDegenerateCheck.h" />
+    <ClInclude Include="VBDeltaProcess.h" />
+    <ClInclude Include="VBDeltaProcWithHandle.h" />
+    <ClInclude Include="VBEllipsesFit.h" />
+    <ClInclude Include="VBEDCmpCombHandle.h" />
+    <ClInclude Include="VBEDCmpWithHandles.h" />
+    <ClInclude Include="VBEDCompress.h" />
+    <ClInclude Include="VBEDDecCombHandle.h" />
+    <ClInclude Include="VBEDDecodeComb.h" />
+    <ClInclude Include="VBEDDecompression.h" />
+    <ClInclude Include="VBEDDecWithHandles.h" />
+    <ClInclude Include="VBEDEncodeComb.h" />
+    <ClInclude Include="VBEDLossnessEncComb.h" />
+    <ClInclude Include="VBEDPCAEncodeComb.h" />
+    <ClInclude Include="VBFDINameCal.h" />
+    <ClInclude Include="VBFDIProbabilityMat.h" />
+    <ClInclude Include="VBFindHole.h" />
+    <ClInclude Include="VBFindHoleEdge.h" />
+    <ClInclude Include="VBFloatLossMerge.h" />
+    <ClInclude Include="VBFloatMerge.h" />
+    <ClInclude Include="VBFloatQuantization.h" />
+    <ClInclude Include="VBFloatSplit.h" />
+    <ClInclude Include="VBGenCoord.h" />
+    <ClInclude Include="VBGenusCheck.h" />
+    <ClInclude Include="VBHoleFillComb.h" />
+    <ClInclude Include="VBHyperbola.h" />
+    <ClInclude Include="VBIntLossPorcess.h" />
+    <ClInclude Include="VBIntSplit.h" />
+    <ClInclude Include="VBIsolateVertCheck.h" />
+    <ClInclude Include="VBKDTree.h" />
+    <ClInclude Include="VBKNearestNeighbor.h" />
+    <ClInclude Include="VBLapComb.h" />
+    <ClInclude Include="VBLaplace2DeformMat.h" />
+    <ClInclude Include="VBLaplace2DeformNewRight.h" />
+    <ClInclude Include="VBLaplaceFirst.h" />
+    <ClInclude Include="VBLaplaceMeshEdit.h" />
+    <ClInclude Include="VBMeshBarycenter.h" />
+    <ClInclude Include="VBMeshGap.h" />
+    <ClInclude Include="VBMeshHogFeature.h" />
+    <ClInclude Include="VBMeshSurfaceArea.h" />
+    <ClInclude Include="VBMeshToOVTable.h" />
+    <ClInclude Include="VBMeshWithHole2OV.h" />
+    <ClInclude Include="VBMLSInterpCircle.h" />
+    <ClInclude Include="VBNonManifoldCheck.h" />
+    <ClInclude Include="VBNonmanifoldPointBreaker.h" />
+    <ClInclude Include="VBPCACompress.h" />
+    <ClInclude Include="VBPCACompressNED.h" />
+    <ClInclude Include="VBPCAEncodeComb.h" />
+    <ClInclude Include="VBPCARestore.h" />
+    <ClInclude Include="VBPreProcCompress.h" />
+    <ClInclude Include="VBPreProcDecompress.h" />
+    <ClInclude Include="VBQuantizationToFloat.h" />
+    <ClInclude Include="VBRangeDecode.h" />
+    <ClInclude Include="VBRangeEncode.h" />
+    <ClInclude Include="VBReversSurfCheck.h" />
+    <ClInclude Include="VBSphereCoordMap2Vt.h" />
+    <ClInclude Include="VBTriangleArea.h" />
+    <ClInclude Include="VBVerticesPCA.h" />
+    <ClInclude Include="VBVtMap2SphereCoord.h" />
+    <ClInclude Include="VBWaxVerticesMap.h" />
+    <ClInclude Include="VGraphAndHeap.h" />
+    <ClInclude Include="VBCurveToGraphMesh.h" />
+    <ClInclude Include="VBCurveToMesh.h" />
+    <ClInclude Include="VBDijkstra.h" />
+    <ClInclude Include="VJEdgeToSimpleMesh.h" />
+    <ClInclude Include="VBGeodicMesh.h" />
+    <ClInclude Include="VJHoleFill.h" />
+    <ClInclude Include="VBMeshCurvature.h" />
+    <ClInclude Include="VJPathFinder.h" />
+    <ClInclude Include="VMLSInterp.h" />
+    <ClInclude Include="VVertScalar.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Complex.cpp" />
+    <ClCompile Include="FDIparams.cpp" />
+    <ClCompile Include="HalfEdge.cpp" />
+    <ClCompile Include="HEFace.cpp" />
+    <ClCompile Include="HEMesh.cpp" />
+    <ClCompile Include="HEMeshConstruct.cpp" />
+    <ClCompile Include="HEVertex.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VBBitTree.cpp" />
+    <ClCompile Include="VBCheckedMeshCmp.cpp" />
+    <ClCompile Include="VBCLERSDecode.cpp" />
+    <ClCompile Include="VBCLERSEncode.cpp" />
+    <ClCompile Include="VBConnectivityCheck.cpp" />
+    <ClCompile Include="VBDegenerateCheck.cpp" />
+    <ClCompile Include="VBDeltaProcess.cpp" />
+    <ClCompile Include="VBDeltaProcWithHandle.cpp" />
+    <ClCompile Include="VBEllipsesFit.cpp" />
+    <ClCompile Include="VBEDCmpCombHandle.cpp" />
+    <ClCompile Include="VBEDCmpWithHandles.cpp" />
+    <ClCompile Include="VBEDCompress.cpp" />
+    <ClCompile Include="VBEDDecCombHandle.cpp" />
+    <ClCompile Include="VBEDDecodeComb.cpp" />
+    <ClCompile Include="VBEDDecompression.cpp" />
+    <ClCompile Include="VBEDDecWithHandles.cpp" />
+    <ClCompile Include="VBEDEncodeComb.cpp" />
+    <ClCompile Include="VBEDLossnessEncComb.cpp" />
+    <ClCompile Include="VBEDPCAEncodeComb.cpp" />
+    <ClCompile Include="VBFDINameCal.cpp" />
+    <ClCompile Include="VBFDIProbabilityMat.cpp" />
+    <ClCompile Include="VBFindHole.cpp" />
+    <ClCompile Include="VBFindHoleEdge.cpp" />
+    <ClCompile Include="VBFloatLossMerge.cpp" />
+    <ClCompile Include="VBFloatQuantization.cpp" />
+    <ClCompile Include="VBFloatSplit.cpp" />
+    <ClCompile Include="VBGenusCheck.cpp" />
+    <ClCompile Include="VBHoleFillComb.cpp" />
+    <ClCompile Include="VBHyperbola.cpp" />
+    <ClCompile Include="VBIntLossPorcess.cpp" />
+    <ClCompile Include="VBIntSplit.cpp" />
+    <ClCompile Include="VBIsolateVertCheck.cpp" />
+    <ClCompile Include="VBKDTree.cpp" />
+    <ClCompile Include="VBKNearestNeighbor.cpp" />
+    <ClCompile Include="VBLapComb.cpp" />
+    <ClCompile Include="VBLaplace2DeformMat.cpp" />
+    <ClCompile Include="VBLaplace2DeformNewRight.cpp" />
+    <ClCompile Include="VBLaplaceFirst.cpp" />
+    <ClCompile Include="VBLaplaceMeshEdit.cpp" />
+    <ClCompile Include="VBMeshGap.cpp" />
+    <ClCompile Include="VBMeshHogFeature.cpp" />
+    <ClCompile Include="VBMeshToOVTable.cpp" />
+    <ClCompile Include="VBMeshWithHole2OV.cpp" />
+    <ClCompile Include="VBMLSInterpCircle.cpp" />
+    <ClCompile Include="VBNonManifoldCheck.cpp" />
+    <ClCompile Include="VBNonmanifoldPointBreaker.cpp" />
+    <ClCompile Include="VBPCACompress.cpp" />
+    <ClCompile Include="VBPCACompressNED.cpp" />
+    <ClCompile Include="VBPCAEncodeComb.cpp" />
+    <ClCompile Include="VBPCARestore.cpp" />
+    <ClCompile Include="VBPreProcCompress.cpp" />
+    <ClCompile Include="VBPreProcDecompress.cpp" />
+    <ClCompile Include="VBQuantizationToFloat.cpp" />
+    <ClCompile Include="VBRangeDecode.cpp" />
+    <ClCompile Include="VBRangeEncode.cpp" />
+    <ClCompile Include="VBReversSurfCheck.cpp" />
+    <ClCompile Include="VBSphereCoordMap2Vt.cpp" />
+    <ClCompile Include="VBVerticesPCA.cpp" />
+    <ClCompile Include="VBVtMap2SphereCoord.cpp" />
+    <ClCompile Include="VBWaxVerticesMap.cpp" />
+    <ClCompile Include="VJCurveToGraphMesh.cpp" />
+    <ClCompile Include="VBCurveToMesh.cpp" />
+    <ClCompile Include="VBDijkstra.cpp" />
+    <ClCompile Include="VJEdgeToSimpleMesh.cpp" />
+    <ClCompile Include="VBGeodicMesh.cpp" />
+    <ClCompile Include="VJHoleFill.cpp" />
+    <ClCompile Include="VBMeshCurvature.cpp" />
+    <ClCompile Include="VJPathFinder.cpp" />
+    <ClCompile Include="VMLSInterp.cpp" />
+    <ClCompile Include="VVertScalar.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

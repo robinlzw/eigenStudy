@@ -5,7 +5,7 @@
 
 
 
-
+// OBJWriteToothMesh()——VSTooth对象写入OBJ文件
 void OBJWriteToothMesh(const VSConstBuffer<VSTooth> & teeth, const std::string& strDstFileName)
 {
 	std::ofstream dstFile(strDstFileName);
@@ -40,6 +40,7 @@ void OBJWriteToothMesh(const VSConstBuffer<VSTooth> & teeth, const std::string& 
 
 
 
+// OBJAppendSimpleMesh()——simpleMesh所指的网格对象写入已有的OBJ文件中。
 void OBJAppendSimpleMesh(std::ofstream& dstFile, const unsigned nOffset, const VSSimpleMeshF& mesh)
 {
 	unsigned nSize = mesh.nVertCount;
@@ -53,6 +54,7 @@ void OBJAppendSimpleMesh(std::ofstream& dstFile, const unsigned nOffset, const V
 	}
 
 	nSize = mesh.nTriangleCount;
+
 	unsigned nShift = nOffset + 1;
 	for (unsigned j = 0; j < nSize; ++j)
 	{
@@ -65,6 +67,7 @@ void OBJAppendSimpleMesh(std::ofstream& dstFile, const unsigned nOffset, const V
 
 
 
+// OBJWriteSimpleMesh()——创建OBJ文件，simpleMesh所指的网格对象写入到OBJ文件中。
 void OBJWriteSimpleMesh(const char* pszFileName, const VSSimpleMeshF& mesh)
 {
 	std::ofstream dstFile(pszFileName);
@@ -149,6 +152,8 @@ unsigned ReadNextValidData(char* & pszBuf, unsigned& nCount, char* validData, co
 
 
 
+
+// OBJReadJawFile()——OBJ文件中读取颌网格数据
 void OBJReadJawFile(VSJaw& jaw, const char* pszFileName)
 {
 	char* pTmp = NULL;
@@ -332,16 +337,18 @@ void OBJReadSimpMesh(VSSimpleMeshF& tooth, const char* pszFileName)
 
 
 
+
+// OBJReadFile()——读取OBJ文件中的顶点和三角片数据，分别写入到两个vector里面。
 void OBJReadFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurfs, const char* pszFileName)
 {
 	char* pTmp = NULL;
-	std::ifstream ifs(pszFileName);//cube bunny Eight
+	std::ifstream ifs(pszFileName);				//cube bunny Eight
 	if (false == ifs.is_open())
 	{
 		return;
 	}
-	std::streampos   pos = ifs.tellg();     //   save   current   position   
-	ifs.seekg(0, std::ios::end);
+	std::streampos   pos = ifs.tellg();				// pos是当前流读入点在流中的绝对位置，是从起点到读入点的距离，非负整数。
+	ifs.seekg(0, std::ios::end);						// 表示将当前流读入点置于与std::ios::end相对位置为0的地方。
 	unsigned fileLen = (unsigned)ifs.tellg();
 	if (0 == fileLen)
 	{
@@ -404,7 +411,7 @@ void OBJReadFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurf
 
 
 
-
+// OBJReadVertices()——读取OBJ文件中的顶点数据，写入到一个vector里面。
 void OBJReadVertices(std::vector<VFVECTOR3>& vertices, const char* pszFileName)
 {
 	char* pTmp = NULL;
@@ -487,6 +494,9 @@ void WriteCrowns(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 	}
 }
 
+
+
+
 void WriteCrowns(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 	const VSJawOcclusionInfo& occludingInfo,
 	std::ofstream& dstFile)
@@ -511,6 +521,9 @@ void WriteCrowns(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 		}
 	}
 }
+
+
+
 
 void WriteCrowns(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 	const VFLocation& location,
@@ -538,6 +551,8 @@ void WriteCrowns(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 }
 
 
+
+
 void OBJWriteCrowns(VSJaw& jaw,
 	const VSJawOcclusionInfo& occludingInfo,
 	const char* pszFileName)
@@ -553,6 +568,9 @@ void OBJWriteCrowns(VSJaw& jaw,
 	WriteCrowns(*jawRef, occludingInfo, dstFile);	
 }
 
+
+
+// WriteJaw()———颌网格数据写入到二进制文件中。
 void WriteJaw(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 	std::ofstream& dstFile, const float flShift = 0.0f)
 {
@@ -583,6 +601,9 @@ void WriteJaw(const VSConstBuffer<VSSimpleMeshF>& jawRef,
 	}
 }
 
+
+
+// OBJWriteJaw()———颌网格数据写入到OBJ文件中。
 void OBJWriteJaws(VSJaw& jaw,
 	const char* pszFileName)
 {
@@ -598,6 +619,9 @@ void OBJWriteJaws(VSJaw& jaw,
 	WriteJaw(*jawRef, dstFile, 8.0f);
 }
 
+
+
+// OBJWriteVertices()——点集数据写入到OBJ文件中。
 void OBJWriteVertices(const VSConstBuffer<VFVECTOR3>& cbVertices, const char* pszFileName)
 {
 	std::ofstream dstFile(pszFileName);
@@ -608,12 +632,18 @@ void OBJWriteVertices(const VSConstBuffer<VFVECTOR3>& cbVertices, const char* ps
 	dstFile.close();
 }
 
+
+
+// OBJWriteStlFile()——simpleMesh所指的网格对象写入到STL文件中，
 void OBJWriteStlFile(const VSSimpleMeshF& simpMesh, const std::string & fileName, const bool blIsAscii)
 {
 	VSTLFSaver saver(fileName, blIsAscii);
 	saver.Process(simpMesh);
 }
 
+
+
+// OBJReadStlFile()——STL文件中读取顶点和三角片数据，分别写入到两个向量之中。
 void OBJReadStlFile(std::vector<VFVECTOR3>& vVerts, std::vector<VNVECTOR3UI>& vSurfs, 
 	const std::string & fileName, const bool blIsAscii)
 {
