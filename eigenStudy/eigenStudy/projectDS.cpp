@@ -424,6 +424,166 @@ void test10()
 }
 
 
+
+// 测试切割路径
+void test11() 
+{
+
+
+	TVPersist<NMALG_CUTPATHGEN::VSCutPathGenInput> perstGenInput;
+	
+	// 读取文件中的序列化数据对象——VSCutPathGenInput对象的序列化数据
+	std::ifstream datF("E:/cutPath/cutpathparaminputLower_1.dat", std::ios::binary);
+	datF >> perstGenInput;
+	datF.close();
+	NMALG_CUTPATHGEN::VSCutPathInfo pathInfo;
+
+
+	NMALG_CUTPATHGEN::VSCutPathGenInput input = perstGenInput.Get();
+
+	// 获取输入对象中封装的网格
+	VSPerfectMesh perfMesh;
+	GETPERFECTMESH(perfMesh, input.gumMesh, extSys, rb);
+
+
+	// 对input.teethMesh中的网格逐一取数据，然后计算。
+	for (size_t ti = 0; ti < input.teethMesh.len - 1; ti++)
+	{
+		const auto& curTeethVerts = input.teethMesh.pData[ti].pVertices;
+		const auto& curTeethVertCnt = input.teethMesh.pData[ti].nVertCount;
+		const auto& nxtTeethVerts = input.teethMesh.pData[ti + 1].pVertices;
+		const auto& nxtTeethVertCnt = input.teethMesh.pData[ti + 1].nVertCount;
+
+		VFVECTOR3 curTeethCen = VFVECTOR3::ZERO;
+		VFVECTOR3 nxtTeethCen = VFVECTOR3::ZERO;
+		for (size_t i = 0; i < curTeethVertCnt; i++)
+			curTeethCen += curTeethVerts[i];
+		curTeethCen /= (float)curTeethVertCnt;
+		for (size_t i = 0; i < nxtTeethVertCnt; i++)
+			nxtTeethCen += nxtTeethVerts[i];
+		nxtTeethCen /= (float)nxtTeethVertCnt;
+
+		VFVECTOR3 cur2nxt = nxtTeethCen - curTeethCen;
+		cur2nxt.Normalize();
+		float curMaxDist = VF_MIN;
+		for (size_t i = 0; i < curTeethVertCnt; i++)
+		{
+			const float dist = cur2nxt.Dot(curTeethVerts[i] - curTeethCen);
+			if (curMaxDist < dist)
+				curMaxDist = dist;
+		}
+		VFVECTOR3 nxt2cur = curTeethCen - nxtTeethCen;
+		nxt2cur.Normalize();
+		float nxtMaxDist = VF_MIN;
+		for (size_t i = 0; i < nxtTeethVertCnt; i++)
+		{
+			const float dist = nxt2cur.Dot(nxtTeethVerts[i] - nxtTeethCen);
+			if (nxtMaxDist < dist)
+				nxtMaxDist = dist;
+		}
+
+		if ((nxtTeethCen - curTeethCen).Magnitude() - curMaxDist - nxtMaxDist > 3.5f)
+		{
+			// pathInfo.blValid = ErrorCode::CUTPATH_GEN_FAIL_EXTRACTED;
+			return;
+		}
+	}
+
+
+
+
+
+	// 1. 确定前景点。
+	NMALG_CUTPATHGEN::VCFindPointPairPath findPointPairPath;
+	VSConstBuffer<unsigned> cbFrontVertices;			// 前景点的索引？？？
+	VD_F_PROFILE_START(VSCutPathGenerator::findPointPairPath.Gen);
+	findPointPairPath.Gen(cbFrontVertices, input);
+	VD_F_PROFILE_FINISH(VSCutPathGenerator::findPointPairPath.Gen);
+
+
+	// 2. 
+	NMALG_CUTPATHGEN::VCCalcLevelSet calcLevelSet;
+	VSConstBuffer<double> cbLevelSet;
+	VD_F_PROFILE_START(VSCutPathGenerator::calcLevelSet.Calc);
+	calcLevelSet.Calc(cbLevelSet, perfMesh, cbFrontVertices, input.cbBottomLine);
+	VD_F_PROFILE_FINISH(VSCutPathGenerator::calcLevelSet.Calc);
+	std::vector<float> vLevelSet(cbLevelSet.len);
+	for (size_t i = 0; i < cbLevelSet.len; i++)
+	{
+		vLevelSet[i] = cbLevelSet.pData[i];
+	}
+
+
+
+
+
+}
+
+
+
+// 看一下切割路径程序输入数据中封装了哪些网格
+void test12() 
+{
+	TVPersist<NMALG_CUTPATHGEN::VSCutPathGenInput> perstGenInput;
+
+	// 读取文件中的序列化数据对象——VSCutPathGenInput对象的序列化数据
+	std::ifstream datF("E:/cutPath/cutpathparaminputLower_1.dat", std::ios::binary);
+	datF >> perstGenInput;
+	datF.close();
+	NMALG_CUTPATHGEN::VSCutPathInfo pathInfo;
+
+
+	NMALG_CUTPATHGEN::VSCutPathGenInput input = perstGenInput.Get();
+
+	VSConstBuffer<VSSimpleMeshF>* pbuffer = nullptr;
+
+
+	OBJWriteSimpleMesh("E:/cutPath/VSCutPathGenInput.gumMesh.obj", input.gumMesh);
+
+
+	pbuffer = &input.teethMesh;
+	stringstream ss;
+	string str = "E:/cutPath/VSCutPathGenInput.teethMesh_";
+	for (int i = 0; i<pbuffer->len; i++) 
+	{
+		ss << str;
+		ss << i; 
+		ss << ".obj";
+		OBJWriteSimpleMesh(ss.str().c_str(), pbuffer->pData[i]);
+		ss.clear();
+		ss.str("");
+	}
+
+
+	pbuffer = &input.waxMesh;
+	str = "E:/cutPath/VSCutPathGenInput.waxMesh_";
+	for (int i = 0; i < pbuffer->len; i++)
+	{
+		ss << str;
+		ss << i;
+		ss << ".obj";
+		OBJWriteSimpleMesh(ss.str().c_str(), pbuffer->pData[i]);
+		ss.clear();
+		ss.str("");
+	}
+
+
+	pbuffer = &input.attMesh;
+	str = "E:/cutPath/VSCutPathGenInput.attMesh_";
+	for (int i = 0; i < pbuffer->len; i++)
+	{
+		ss << str;
+		ss << i;
+		ss << ".obj";
+		OBJWriteSimpleMesh(ss.str().c_str(), pbuffer->pData[i]);
+		ss.clear();
+		ss.str("");
+	}
+
+
+}
+
+
 }
 
 

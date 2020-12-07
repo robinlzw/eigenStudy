@@ -9,6 +9,11 @@
 
 
 
+
+
+
+
+
 #include "vstd.h"
 #pragma comment(lib, "vstd.lib")
 
@@ -25,6 +30,9 @@
 #include "./Common/pkg/ldwzkupdater.h"
 #pragma comment(lib, "ldwzkupdater.lib")
 
+#include "./Common/pkg/ldwxlupdater.h"
+#pragma comment(lib, "ldwxlupdater.lib")
+
 
 #include "./Common/obj/lsalgtools/ilsalgtools.h"
 #include "./Common/obj/lsalgtools/ilsalgtoolsperfmesh.h"
@@ -36,6 +44,8 @@
 #pragma comment(lib, "lsalgtools.lib")							// lsalgtools.lib——提供了一些OBJ文件读写的接口，VSMesh类，
 
 
+
+
 #include "./Common/obj/alg/ialgobjectcontainerproxy.h"			
 #pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgobjectcontainerproxy.lib——ldobjectcontainer的代理库，包含VCProxy类
 
@@ -44,8 +54,23 @@
 #pragma comment(lib, "ldobjectcontainer.lib")					// ldobjectcontainer动态库 
 
 
+
+
+
+#include "./lsalgmatrix/lsalgmatrix.h"							// lsalgmatrix.lib——线性代数相关的项目自定义的数据结构和算法。
+//#pragma comment(lib, "lsalgmatrix.lib")
+
+
+#include "lsalgcutpathgen/VCCalcLevelSet.h"
+#include "lsalgcutpathgen/VCFindPointPairPath.h"
 #include "./lsalgcutpathgen/lsalgcutpathgen.h"					// lsalgcutpathgen.lib——计算切割路径。
-#pragma comment(lib, "lsalgcutpathgen.h")
+#include "obj/alg/ialgcutpathgen.h"								// 计算切割路径。
+#pragma comment(lib, "lsalgcutpathgen.lib")
+
+
+
+
+
 
 //#include "./Common/obj/alg/ialgmeshrayintersection.h"			// 提供了射线测距类IVMeshRayIntersection？？？目前不知道被包含在哪个库里。
 #include "./lsalgmeshrayintersection/lsalgmeshrayintersection.h"

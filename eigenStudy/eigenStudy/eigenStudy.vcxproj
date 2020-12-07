@@ -77,8 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\workstation\eigen;D:\workstation\gitRepositories\projectStudy\Base\vmath;D:\workstation\gitRepositories\projectStudy\Base\vstd;D:\workstation\gitRepositories\projectStudy;D:\workstation\gitRepositories\projectStudy\Base;D:\workstation\gitRepositories\projectStudy\LibTools;D:\workstation\gitRepositories\projectStudy\LibTools\lsalgtools;D:\workstation\gitRepositories\projectStudy\Common;D:\workstation\gitRepositories\projectStudy\Common\obj;$(SolutionDir)$(Configuration)\;D:\workstation;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Algorithm;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\include;D:\workstation\gitRepositories\projectStudy\Third_Party\pmp-library\src;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\lsalgmeshsimplify\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(Configuration)\;D:\workstation\gitRepositories\projectStudy\Common;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Algorithm;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\include;D:\workstation\gitRepositories\projectStudy\Third_Party\pmp-library\src;D:\workstation\eigen;D:\workstation\gitRepositories\projectStudy\Third_Party\pmp-library\external\glew\include;</IncludePath>
-    <LibraryPath>$(SolutionDir)$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\workstation\eigen;D:\workstation\gitRepositories\projectStudy\Base\vmath;D:\workstation\gitRepositories\projectStudy\Base\vstd;D:\workstation\gitRepositories\projectStudy;D:\workstation\gitRepositories\projectStudy\Base;D:\workstation\gitRepositories\projectStudy\LibTools;D:\workstation\gitRepositories\projectStudy\LibTools\lsalgtools;D:\workstation\gitRepositories\projectStudy\Common;D:\workstation\gitRepositories\projectStudy\Common\obj;$(SolutionDir)$(Configuration)\;D:\workstation;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Algorithm;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\include;D:\workstation\gitRepositories\projectStudy\Third_Party\pmp-library\src;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\lsalgmeshsimplify\include;D:\workstation\gitRepositories\projectStudy\Third_Party\pmp-library\external\glew\include;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\lsalgmatrix;D:\workstation\gitRepositories\projectStudy\Third_Party\lib\suitesparse-metis\include;D:\workstation\gitRepositories\projectStudy\Third_Party\lib\suitesparse-metis\include\suitesparse;D:\workstation\gitRepositories\projectStudy\Third_Party\SuperLU_5.2.1\SRC;D:\workstation\gitRepositories\projectStudy\Third_Party;D:\workstation\eigen\Eigen\src;D:\workstation\eigen\Eigen</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Configuration)\;$(LibraryPath);D:\workstation\gitRepositories\projectStudy\Third_Party\eigen\lib\Win32_Release;</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -125,7 +125,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);libamd.lib;libblas.lib;libbtf.lib;libcamd.lib;libccolamd.lib;libcholmod.lib;libcolamd.lib;libcxsparse.lib;libklu.lib;liblapack.lib;libldl.lib;libspqr.lib;libumfpack.lib;metis.lib;suitesparseconfig.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,6 +149,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\lsalgmatrix.cpp" />
     <ClCompile Include="asistant.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="projectDS.cpp" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="asistant.h" />
     <ClInclude Include="projectDS.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\projectStudy\Base\vmath\vfvector3.inl" />

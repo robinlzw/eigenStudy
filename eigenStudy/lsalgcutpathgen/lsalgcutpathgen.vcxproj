@@ -148,29 +148,6 @@
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\include\algcutpathgen.h" />
-    <ClInclude Include="lsalgcutpathgen.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="VCFindCutPath.h" />
-    <ClInclude Include="VCFindPointPairPath.h" />
-    <ClInclude Include="VCCalcLevelSet.h" />
-    <ClInclude Include="VJPointWtToCurve.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="lsalgcutpathgen.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="VCFindCutPath.cpp" />
-    <ClCompile Include="VCFindPointPairPath.cpp" />
-    <ClCompile Include="VCCalcLevelSet.cpp" />
-    <ClCompile Include="VJPointWtToCurve.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
