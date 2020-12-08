@@ -27,9 +27,6 @@
     <ClCompile Include="projectDS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\lsalgmatrix.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="projectDS.h">

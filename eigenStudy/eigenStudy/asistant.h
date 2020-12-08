@@ -9,7 +9,12 @@
 
 
 
+// 项目属性中包含的库：
+/*
+	eigen的静态库：....
+	矩阵计算用到的不知道哪里的静态库：lsalgsuperlu.lib
 
+*/
 
 
 
@@ -45,7 +50,6 @@
 
 
 
-
 #include "./Common/obj/alg/ialgobjectcontainerproxy.h"			
 #pragma comment(lib, "lsalgobjectcontainerproxy.lib")			// lsalgobjectcontainerproxy.lib——ldobjectcontainer的代理库，包含VCProxy类
 
@@ -58,12 +62,14 @@
 
 
 #include "./lsalgmatrix/lsalgmatrix.h"							// lsalgmatrix.lib——线性代数相关的项目自定义的数据结构和算法。
-//#pragma comment(lib, "lsalgmatrix.lib")
+//#include "./common/obj/alg/ialgmatrix.h"
+//#include "./lsalgmatrix/inner.h"
+#pragma comment(lib, "lsalgmatrix.lib")
 
 
 #include "lsalgcutpathgen/VCCalcLevelSet.h"
 #include "lsalgcutpathgen/VCFindPointPairPath.h"
-#include "./lsalgcutpathgen/lsalgcutpathgen.h"					// lsalgcutpathgen.lib——计算切割路径。
+#include "lsalgcutpathgen/lsalgcutpathgen.h"					// lsalgcutpathgen.lib——计算切割路径。
 #include "obj/alg/ialgcutpathgen.h"								// 计算切割路径。
 #pragma comment(lib, "lsalgcutpathgen.lib")
 

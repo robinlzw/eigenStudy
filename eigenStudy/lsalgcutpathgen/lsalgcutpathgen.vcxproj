@@ -114,7 +114,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -147,6 +147,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\lsalgcutpathgen.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\stdafx.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\targetver.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCCalcLevelSet.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindCutPath.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindPointPairPath.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VJPointWtToCurve.h" />
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\alg\ialgcutpathgen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\lsalgcutpathgen.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\stdafx.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCCalcLevelSet.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindCutPath.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindPointPairPath.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VJPointWtToCurve.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

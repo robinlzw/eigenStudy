@@ -58,6 +58,7 @@ bool generateMeshWrong(VSSimpleMeshF& mesh)
 }
 
 
+
 // 函数体内生成堆上的网格对象，输出网格指针的函数——正确示范
 bool generateMeshRight(VSSimpleMeshF& mesh) 
 {
@@ -426,10 +427,19 @@ void test10()
 
 
 // 测试切割路径
+enum ErrorCode
+{
+	CUTPATH_GEN_OK = 0,
+	CUTPATH_GEN_FAIL_EXTRACTED = 1,
+	CUTPATH_GEN_FAIL_CUTNORM = 2,
+	CUTPATH_GEN_FAIL_FIND = 3
+};
+
+
+
+
 void test11() 
 {
-
-
 	TVPersist<NMALG_CUTPATHGEN::VSCutPathGenInput> perstGenInput;
 	
 	// 读取文件中的序列化数据对象——VSCutPathGenInput对象的序列化数据
@@ -492,28 +502,106 @@ void test11()
 
 
 
-
 	// 1. 确定前景点。
 	NMALG_CUTPATHGEN::VCFindPointPairPath findPointPairPath;
 	VSConstBuffer<unsigned> cbFrontVertices;			// 前景点的索引？？？
+
 	VD_F_PROFILE_START(VSCutPathGenerator::findPointPairPath.Gen);
 	findPointPairPath.Gen(cbFrontVertices, input);
 	VD_F_PROFILE_FINISH(VSCutPathGenerator::findPointPairPath.Gen);
 
 
-	// 2. 
+	// 2. 求解laplace方程。
 	NMALG_CUTPATHGEN::VCCalcLevelSet calcLevelSet;
-	VSConstBuffer<double> cbLevelSet;
+	VSConstBuffer<double> cbLevelSet;				// 存放第二步的输出。
+
 	VD_F_PROFILE_START(VSCutPathGenerator::calcLevelSet.Calc);
 	calcLevelSet.Calc(cbLevelSet, perfMesh, cbFrontVertices, input.cbBottomLine);
 	VD_F_PROFILE_FINISH(VSCutPathGenerator::calcLevelSet.Calc);
-	std::vector<float> vLevelSet(cbLevelSet.len);
+
+	std::vector<float> vLevelSet(cbLevelSet.len);		// 存储结果的向量。
 	for (size_t i = 0; i < cbLevelSet.len; i++)
 	{
 		vLevelSet[i] = cbLevelSet.pData[i];
 	}
 
 
+
+	// 3. 通过laplace方程的解找出腭网格中切割路径的顶点，可能并非最终结果，因为后面可能需要对点数进行精简。
+	NMALG_CUTPATHGEN::VCFindCutPath  m_findCutPath;				// 功能类的成员数据
+	std::vector<unsigned> vCutPathVIndex;
+	VD_F_PROFILE_START(VSCutPathGenerator::m_findCutPath.Gen);
+	m_findCutPath.Gen(pathInfo, vCutPathVIndex, perfMesh, VD_V2CB(vLevelSet));
+
+	VD_F_PROFILE_FINISH(VSCutPathGenerator::m_findCutPath.Gen);
+	if (pathInfo.blValid != CUTPATH_GEN_OK)			// 错误处理
+		return;
+
+
+	// 4. ？？？精简切割路径中的点数？？？
+	std::vector<unsigned> vOptimizeVertIndex;
+	std::vector<VFVECTOR3> vCutVertices;
+	std::vector<VFVECTOR3> vCutNormals;
+
+	//			原函数为功能类内部的private方法, 这里写成lambda.
+	auto OptimizeCutPath = [](std::vector<VFVECTOR3>& outPath, std::vector<unsigned>& vOptimizeVertIndex,
+		const VSConstBuffer<unsigned>& cbVertIndex, const VSConstBuffer<VFVECTOR3>& cbCutPath)		
+	{
+		if (0 == cbCutPath.len)
+			return;
+
+		const unsigned cnVertCount = 200;
+		int nVertCount = cbCutPath.len;
+		if (nVertCount > cnVertCount)
+		{
+			std::vector<float> vEdgeLen(nVertCount + 1);
+
+			vEdgeLen[0] = 0.0f;
+
+			for (int nVIdx = 1; nVIdx <= nVertCount; nVIdx++)
+			{
+				float flVal = (cbCutPath.pData[nVIdx - 1] - cbCutPath.pData[nVIdx % nVertCount]).SqrMagnitude();
+				vEdgeLen[nVIdx] = vEdgeLen[nVIdx - 1] + flVal;
+			}
+			float flStep = vEdgeLen[nVertCount] / (float)cnVertCount;
+
+			outPath.resize(cnVertCount);
+			vOptimizeVertIndex.resize(cnVertCount);
+			outPath[0] = cbCutPath.pData[0];
+			unsigned nOrgVIdx = 1;
+			for (int nCutVCount = 1; nCutVCount < cnVertCount; nCutVCount++)
+			{
+				float flVal = flStep * nCutVCount;
+				for (; nOrgVIdx < nVertCount; nOrgVIdx++)
+				{
+					if (flVal - vEdgeLen[nOrgVIdx] < 0.0f)
+					{
+						outPath[nCutVCount] = cbCutPath.pData[nOrgVIdx];
+						vOptimizeVertIndex[nCutVCount] = cbVertIndex.pData[nOrgVIdx];
+						if (std::abs(vEdgeLen[nOrgVIdx] - flVal) > std::abs(vEdgeLen[nOrgVIdx - 1] - flVal))
+						{
+							outPath[nCutVCount] = cbCutPath.pData[nOrgVIdx - 1];
+							vOptimizeVertIndex[nCutVCount] = cbVertIndex.pData[nOrgVIdx - 1];
+						}
+						break;
+					}
+				}
+			}
+		}
+		else
+		{
+			outPath.resize(nVertCount);
+			vOptimizeVertIndex.resize(nVertCount);
+			std::memcpy(&outPath[0], cbCutPath.pData, sizeof(VFVECTOR3) * nVertCount);
+			std::memcpy(&vOptimizeVertIndex[0], cbVertIndex.pData, sizeof(unsigned) * nVertCount);
+		}
+	};
+
+
+
+	VD_F_PROFILE_START(VSCutPathGenerator::OptimizeCutPath);
+	OptimizeCutPath(vCutVertices, vOptimizeVertIndex, VD_V2CB(vCutPathVIndex), pathInfo.cbCutVertices);
+	VD_F_PROFILE_FINISH(VSCutPathGenerator::OptimizeCutPath);
 
 
 
@@ -531,25 +619,57 @@ void test12()
 	datF >> perstGenInput;
 	datF.close();
 	NMALG_CUTPATHGEN::VSCutPathInfo pathInfo;
+	
+	
+
 
 
 	NMALG_CUTPATHGEN::VSCutPathGenInput input = perstGenInput.Get();
 
 	VSConstBuffer<VSSimpleMeshF>* pbuffer = nullptr;
+	VSConstBuffer<VSConstBuffer<unsigned> >* pbb = nullptr;
+	const VSSimpleMeshF* pmesh = nullptr;
 
 
 	OBJWriteSimpleMesh("E:/cutPath/VSCutPathGenInput.gumMesh.obj", input.gumMesh);
 
 
+
+	// 成员数据cbGumGumLine是一个双重buffer——VSConstBuffer<VSConstBuffer<unsigned>>, 每颗牙的牙龈线点集。 
 	pbuffer = &input.teethMesh;
+	pbb = &input.cbGumGumLine;
+
 	stringstream ss;
 	string str = "E:/cutPath/VSCutPathGenInput.teethMesh_";
-	for (int i = 0; i<pbuffer->len; i++) 
+
+
+	for (int i = 0; i < pbuffer->len; i++)			// 当前正在处理第i颗牙齿。
 	{
 		ss << str;
 		ss << i; 
 		ss << ".obj";
-		OBJWriteSimpleMesh(ss.str().c_str(), pbuffer->pData[i]);
+		pmesh = &(pbuffer->pData[i]);
+		cout << pmesh->nVertCount << endl;
+		OBJWriteSimpleMesh(ss.str().c_str(), *pmesh);
+		ss.clear();
+		ss.str("");
+
+		str = "E:/cutPath/牙龈线_";
+		ss << str;
+		ss << i;
+		ss << ".obj";
+		vector<VFVECTOR3> vers;
+		vers.resize(pbb->pData[i].len);
+		for (int j = 0; j < pbb->pData[i].len; j++)		// vector容器中放入每一个牙龈线顶点。 
+		{
+			unsigned index = (pbb->pData[i]).pData[j];
+			cout << "index == " << index << endl;
+			vers[j] = pmesh->pVertices[index];
+		}
+
+		OBJWriteVertices( VD_V2CB(vers), ss.str().c_str());
+		vers.clear();
+
 		ss.clear();
 		ss.str("");
 	}
@@ -581,7 +701,15 @@ void test12()
 	}
 
 
+
+
+
+
 }
+
+
+
+
 
 
 }

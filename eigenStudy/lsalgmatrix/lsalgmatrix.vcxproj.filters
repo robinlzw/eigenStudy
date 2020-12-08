@@ -17,4 +17,35 @@
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\alg\ialgmatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\lsalgmatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\inner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\lsalgmatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\VDDenseMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\VDSparseMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

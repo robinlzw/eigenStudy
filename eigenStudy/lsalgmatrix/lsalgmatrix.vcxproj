@@ -76,7 +76,7 @@
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(Configuration)\;D:\workstation\gitRepositories\projectStudy\Common;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Common\obj;D:\workstation;D:\workstation\gitRepositories\projectStudy\Algorithm;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\lsalgmatrix;D:\workstation\gitRepositories\projectStudy\Third_Party\lib\suitesparse-metis\include;D:\workstation\gitRepositories\projectStudy\Third_Party\lib\suitesparse-metis\include\suitesparse;D:\workstation\gitRepositories\projectStudy\Third_Party\SuperLU_5.2.1\SRC;D:\workstation\gitRepositories\projectStudy\Third_Party;D:\workstation\eigen;D:\workstation\eigen\Eigen;D:\workstation\eigen\Eigen\src</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(Configuration)\;D:\workstation\gitRepositories\projectStudy\Common;$(SolutionDir);D:\workstation\gitRepositories\projectStudy\Common\obj;D:\workstation\gitRepositories\projectStudy\Algorithm;D:\workstation\gitRepositories\projectStudy\Algorithm\LibStatic\lsalgmatrix;D:\workstation\gitRepositories\projectStudy\Third_Party\lib\suitesparse-metis\include;D:\workstation\gitRepositories\projectStudy\Third_Party\lib\suitesparse-metis\include\suitesparse;D:\workstation\gitRepositories\projectStudy\Third_Party\SuperLU_5.2.1\SRC;D:\workstation\gitRepositories\projectStudy\Third_Party;D:\workstation\gitRepositories\projectStudy\Third_Party\eigen\Eigen;D:\workstation\gitRepositories\projectStudy\Third_Party\eigen</IncludePath>
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
@@ -129,7 +129,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -170,6 +170,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\inner.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\lsalgmatrix.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\stdafx.h" />
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\targetver.h" />
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\alg\ialgmatrix.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\lsalgmatrix.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\stdafx.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\VDDenseMatrix.cpp" />
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgmatrix\VDSparseMatrix.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

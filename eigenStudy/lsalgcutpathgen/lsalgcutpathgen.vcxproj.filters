@@ -17,4 +17,50 @@
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VJPointWtToCurve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindPointPairPath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindCutPath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCCalcLevelSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\lsalgcutpathgen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Common\obj\alg\ialgcutpathgen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\lsalgcutpathgen.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\stdafx.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCCalcLevelSet.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindCutPath.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VCFindPointPairPath.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lsalgcutpathgen\VJPointWtToCurve.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
