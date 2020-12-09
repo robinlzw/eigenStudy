@@ -67,6 +67,12 @@
 #pragma comment(lib, "lsalgmatrix.lib")
 
 
+
+#include "lswzkalgmesh/VBGeodicMesh.h"
+#pragma comment(lib, "lswzkalgmesh.lib")					// lswzkalgmesh.lib——包含了三维网格科学计算相关的很多接口，包括laplace矩阵VBLaplace2DeformMat，测地距离功能类VBGeodicMesh。。。
+
+
+
 #include "lsalgcutpathgen/VCCalcLevelSet.h"
 #include "lsalgcutpathgen/VCFindPointPairPath.h"
 #include "lsalgcutpathgen/lsalgcutpathgen.h"					// lsalgcutpathgen.lib——计算切割路径。

@@ -709,6 +709,78 @@ void test12()
 
 
 
+// 测试测地距离功能类：
+void test13() 
+{
+
+	VBGeodicMesh geo;				// 测量测地距离的功能类对象。
+
+	VNALGMESH::VSMeshGeodic result;			// 存放测量结果的对象，只有一个字段：lstDist，是一个封装了float的buffer		
+	VSPerfectMesh  perfMesh;				// 输入网格——一个接近原型的面网格，顶点全在边缘。
+	VSConstBuffer<unsigned>	pointIdx;		// 起始点的索引。
+
+	VSSimpleMeshF mesh;
+	OBJReadSimpMesh(mesh, "E:/roundSurface.obj");
+	GETPERFECTMESH(perfMesh, mesh , extSys, rb);			// 输入simplemesh得到perfectMesh的接口。
+
+															
+	// 射测量起点为网格中第一个点。
+	vector<unsigned> verIdx;
+	verIdx.push_back(0);
+	pointIdx = VD_V2CB(verIdx);
+
+
+	// VBGeodicMesh功能类对象执行测地距离的测量——Build()方法
+	/*
+		void Build( VNALGMESH::VSMeshGeodic & gm , 
+					const VSGraphMesh & msh , 
+					const VSConstBuffer< unsigned > & cd 
+					) ;
+	*/
+	geo.Build(result, perfMesh, pointIdx);
+
+	VSConstBuffer<float>& buffer = result.lstDist;
+
+	for (int i = 0; i < buffer.len; i++)
+	{
+		cout << buffer.pData[i] << ",  ";
+		if (0 == (i + 1) % 5)
+		{
+			cout << endl;
+		}
+	}
+	cout << endl;
+	cout << "测量结果中的float的个数：" << buffer.len << endl;
+
+	const float pi = 3.14159;
+	float radius = 10;
+	VFVECTOR3 temp1(radius, 0, 0);
+	VFVECTOR3 temp2(radius*cos(2 * pi / 30.0), radius*sin(2 * pi / 30.0), 0);
+	cout << "理论计算相邻两个顶点的距离为：" << (temp2 - temp1).Magnitude() << endl;
+
+
+	// 如果测量测地距离设定的起始点不止一个：
+	verIdx.push_back(1);
+	verIdx.push_back(2);
+	pointIdx = VD_V2CB(verIdx);
+	result = VNALGMESH::VSMeshGeodic();		// 输出容器重置一下。
+	geo.Build(result, perfMesh, pointIdx);
+
+
+	buffer = result.lstDist;
+	for (int i = 0; i < buffer.len; i++)
+	{
+		cout << buffer.pData[i] << ",  ";
+		if ( 0 == (i+1)% 5) 
+		{
+			cout << endl;
+		}
+	}
+	cout << endl;
+
+
+	cout << "finished." << endl;
+}
 
 
 

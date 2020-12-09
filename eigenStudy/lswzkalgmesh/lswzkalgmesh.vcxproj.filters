@@ -1,514 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Complex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FDIparams.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HalfEdge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HEFace.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HEMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HEMeshConstruct.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HEVertex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Quaternion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBBitTree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBCheckedMeshCmp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBCLERSDecode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBCLERSEncode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBConnectivityCheck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBCurveToMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBDegenerateCheck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBDeltaProcess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBDeltaProcWithHandle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBDijkstra.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDCmpCombHandle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDCmpWithHandles.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDCompress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDDecCombHandle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDDecodeComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDDecompression.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDDecWithHandles.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDEncodeComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDLossnessEncComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEDPCAEncodeComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBEllipsesFit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFDINameCal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFDIProbabilityMat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFindHole.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFindHoleEdge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFloatLossMerge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFloatQuantization.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBFloatSplit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBGenusCheck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBGeodicMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBHoleFillComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBHyperbola.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBIntLossPorcess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBIntSplit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBIsolateVertCheck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBKNearestNeighbor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBLapComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBLaplace2DeformMat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBLaplace2DeformNewRight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBLaplaceFirst.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBLaplaceMeshEdit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBKDTree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBMeshCurvature.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBMeshGap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBMeshHogFeature.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBMeshToOVTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBMeshWithHole2OV.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBMLSInterpCircle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBNonManifoldCheck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBNonmanifoldPointBreaker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBPCACompress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBPCACompressNED.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBPCAEncodeComb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBPCARestore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBPreProcCompress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBPreProcDecompress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBQuantizationToFloat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBRangeDecode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBRangeEncode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBReversSurfCheck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBSphereCoordMap2Vt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VMLSInterp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBVerticesPCA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBVtMap2SphereCoord.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VBWaxVerticesMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VJCurveToGraphMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VJEdgeToSimpleMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VJHoleFill.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VJPathFinder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VVertScalar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Complex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FDIparams.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HalfEdge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HEEdge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HEFace.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HEMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HEMeshConstruct.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HEVertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="innerinterf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Quaternion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBBitTree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBCheckedMeshCmp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBCLERSDecode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBCLERSEncode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBConnectivityCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBCurveToGraphMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBCurveToMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBDegenerateCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBDeltaProcess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBDeltaProcWithHandle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBDijkstra.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDCmpCombHandle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDCmpWithHandles.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDCompress.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDDecCombHandle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDDecodeComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDDecompression.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDDecWithHandles.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDEncodeComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDLossnessEncComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEDPCAEncodeComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBEllipsesFit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFDINameCal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFDIProbabilityMat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFindHole.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFindHoleEdge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFloatLossMerge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFloatMerge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFloatQuantization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBFloatSplit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBGenCoord.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBGenusCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBGeodicMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBHoleFillComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBHyperbola.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBIntLossPorcess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBIntSplit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBIsolateVertCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBKDTree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBKNearestNeighbor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBLapComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBLaplace2DeformMat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBLaplace2DeformNewRight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBLaplaceFirst.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBLaplaceMeshEdit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshBarycenter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshCurvature.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshGap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshHogFeature.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshToOVTable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshWithHole2OV.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMeshSurfaceArea.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBMLSInterpCircle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBNonManifoldCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBNonmanifoldPointBreaker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBPCACompress.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBPCACompressNED.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBPCAEncodeComb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBPCARestore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBPreProcCompress.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBPreProcDecompress.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBQuantizationToFloat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBRangeDecode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBRangeEncode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBReversSurfCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBSphereCoordMap2Vt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBTriangleArea.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBVerticesPCA.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBVtMap2SphereCoord.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VBWaxVerticesMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VGraphAndHeap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VJEdgeToSimpleMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VJHoleFill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VJPathFinder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VMLSInterp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VVertScalar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -518,5 +10,516 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{c8a8cf02-38a3-4c0f-b2de-2f372ae0f674}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\Complex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\FDIparams.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HalfEdge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEEdge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEFace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEMeshConstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEVertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\innerinterf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\Quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBBitTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCheckedMeshCmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCLERSDecode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCLERSEncode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBConnectivityCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCurveToGraphMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCurveToMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDegenerateCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDeltaProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDeltaProcWithHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDijkstra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDCmpCombHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDCmpWithHandles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDCompress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecCombHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecodeComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecompression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecWithHandles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDEncodeComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDLossnessEncComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDPCAEncodeComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEllipsesFit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFDINameCal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFDIProbabilityMat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFindHole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFindHoleEdge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatLossMerge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatMerge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatQuantization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatSplit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBGenCoord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBGenusCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBGeodicMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBHoleFillComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBHyperbola.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBIntLossPorcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBIntSplit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBIsolateVertCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBKDTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBKNearestNeighbor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLapComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplace2DeformMat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplace2DeformNewRight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplaceFirst.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplaceMeshEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshBarycenter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshCurvature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshGap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshHogFeature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshSurfaceArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshToOVTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshWithHole2OV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMLSInterpCircle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBNonManifoldCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBNonmanifoldPointBreaker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCACompress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCACompressNED.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCAEncodeComb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCARestore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPreProcCompress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPreProcDecompress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBQuantizationToFloat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBRangeDecode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBRangeEncode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBReversSurfCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBSphereCoordMap2Vt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBTriangleArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBVerticesPCA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBVtMap2SphereCoord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBWaxVerticesMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VGraphAndHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJEdgeToSimpleMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJHoleFill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJPathFinder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VMLSInterp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VTopoMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VVertScalar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\Complex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\FDIparams.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HalfEdge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEFace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEMeshConstruct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\HEVertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\Quaternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBBitTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCheckedMeshCmp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCLERSDecode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCLERSEncode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBConnectivityCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBCurveToMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDegenerateCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDeltaProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDeltaProcWithHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBDijkstra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDCmpCombHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDCmpWithHandles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDCompress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecCombHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecodeComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecompression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDDecWithHandles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDEncodeComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDLossnessEncComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEDPCAEncodeComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBEllipsesFit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFDINameCal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFDIProbabilityMat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFindHole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFindHoleEdge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatLossMerge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatQuantization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBFloatSplit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBGenusCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBGeodicMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBHoleFillComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBHyperbola.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBIntLossPorcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBIntSplit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBIsolateVertCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBKDTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBKNearestNeighbor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLapComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplace2DeformMat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplace2DeformNewRight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplaceFirst.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBLaplaceMeshEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshCurvature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshGap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshHogFeature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshToOVTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMeshWithHole2OV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBMLSInterpCircle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBNonManifoldCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBNonmanifoldPointBreaker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCACompress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCACompressNED.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCAEncodeComb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPCARestore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPreProcCompress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBPreProcDecompress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBQuantizationToFloat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBRangeDecode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBRangeEncode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBReversSurfCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBSphereCoordMap2Vt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBVerticesPCA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBVtMap2SphereCoord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VBWaxVerticesMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJCurveToGraphMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJEdgeToSimpleMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJHoleFill.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VJPathFinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VMLSInterp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\projectStudy\Algorithm\LibStatic\lswzkalgmesh\VVertScalar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
