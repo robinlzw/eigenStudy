@@ -279,7 +279,7 @@ void example3()
 
 int main()
 {
-	PDS::test13();
+	TEST_BASIC_DS::test9();
 
 	cout << "finished." << endl;
 

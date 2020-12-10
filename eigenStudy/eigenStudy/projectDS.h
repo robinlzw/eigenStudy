@@ -1,11 +1,10 @@
 #include "asistant.h"
 
-
 // projectDS.h——工作项目中的自定义数据结构的测试
 
 
-
-namespace PDS 
+// 测试基础数据结构
+namespace TEST_BASIC_DS
 {
 	void test1();
 	void test2();
@@ -17,15 +16,22 @@ namespace PDS
 	void test8();
 	void test9();
 	void test10();
-	void test11();
-	void test12();
-	void test13();
-	void test14();
-	void test15();
-	void test16();
+}
 
 
-	bool generateMeshWrong(VSSimpleMeshF& mesh);
-	bool generateMeshRight(VSSimpleMeshF& mesh);
+
+// 测试功能类
+namespace TEST_FUNCTIONAL_CLASS 
+{
+	void test1();
+	void test2();
+	void test3();
+	void test4();
+	void test5();
+	void test6();
+	void test7();
+	void test8();
 
 }
+
+

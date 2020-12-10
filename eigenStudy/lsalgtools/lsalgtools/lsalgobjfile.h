@@ -5,10 +5,6 @@
 
 
 // 声明了一堆和输出的.obj文件相关的函数
-
-
-
-
 VD_PERSISTCLASS_BEGIN(VSToothID)
 	VD_DEFMEMBER(VSConstBuffer<char>, id)
 VD_PERSISTCLASS_END();

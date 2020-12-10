@@ -9,17 +9,6 @@
 
 
 
-// struct VSMesh
-/*
-	三维网格类;
-	成员数据：
-			vector<VFVECTOR3> vVertice;————三维点对象vector表示的顶点集
-			vector<VNVECTOR3UI> vSurface;
-
-			
-
-*/
-
 
 namespace NM_PMMESH
 {
@@ -100,7 +89,11 @@ namespace NM_PMMESH
 		}
 	};
 }
-//////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 // PerfMesh operator
 extern void PMGetSimpMesh(VSSimpleMeshF& out, const NM_PMMESH::VSMesh& mesh);
 extern void PMCopyMesh(NM_PMMESH::VSMesh& out, const NM_PMMESH::VSMesh& in);
@@ -124,29 +117,32 @@ extern void PMGetFistTouchedPoint(VFVECTOR3& positivePoint, VFVECTOR3& negativeP
 extern void PMGetLastTouchedPoint(VFVECTOR3& positivePoint, VFVECTOR3& negativePoint,
 	const VSConstBuffer<VFVECTOR3>& cbVerts, const VFRay& ray, const float flPrecision);
 
-//////////////////////////////////////////////////////////////////////////
-// PMMeshCenterFixSmooth， PMMeshCenterFixSmoothWithBndry，只修改顶点
-// 位置，不改变拓扑关系，维持原来的顶点顺序。
+//PMMeshCenterFixSmooth， PMMeshCenterFixSmoothWithBndry，只修改顶点位置，不改变拓扑关系，维持原来的顶点顺序。
 extern void PMMeshCenterFixSmooth(NM_PMMESH::VSMesh& out, const VSPerfectMesh& perfMesh);
 extern void PMMeshCenterFixSmoothWithBndry(NM_PMMESH::VSMesh& out, const VSPerfectMesh& perfMesh);
-//////////////////////////////////////////////////////////////////////////
+
 
 extern void PMGetCircle2Dim(std::vector<VFVECTOR2>&out, const unsigned nPointCnt,const float flRadius = 1.0f);
 extern void PMRemoveRepeatedPoint(NM_PMMESH::VSMesh& out, const NM_PMMESH::VSMesh& in);
+
+
+
 /*
-参数：
-输出参数：
-VFVECTOR3& positivePoint	- 射线正向的交点
-VFVECTOR3& negativePoint	- 射线反向的交点
-输入参数：
-const VSSimpleMeshF& sm		- 牙齿模型网格
-const VFRay& ray			- 从牙齿内侧向外发射的射线
-const bool blIsFirstTouch	- true： 第一次接触， false： 最后一次接触
-描述：射线ray的起始点是处于牙齿模型的内部，向牙齿模型外部发射射线，
-查找第一次接触牙齿模型的点或者最后一次接触牙齿模型的点。
+	输出参数：
+			VFVECTOR3& positivePoint	- 射线正向的交点
+			VFVECTOR3& negativePoint	- 射线反向的交点
+	输入参数：
+			const VSSimpleMeshF& sm		- 牙齿模型网格
+			const VFRay& ray			- 从牙齿内侧向外发射的射线
+			const bool blIsFirstTouch	- true： 第一次接触， false： 最后一次接触
+	描述：射线ray的起始点是处于牙齿模型的内部，向牙齿模型外部发射射线，
+			查找第一次接触牙齿模型的点或者最后一次接触牙齿模型的点。
 */
 extern void PMGetTouchedPoint(VFVECTOR3& positivePoint, VFVECTOR3& negativePoint,
 	const VSSimpleMeshF& sm, const VFRay& ray, const bool blIsFirstTouch = true);
+
+
+
 // 射线和平面相交
 extern NM_TOOLS::RAYPLANE_CROSS_E PMGetCrossPointRayAndPlane(VFVECTOR3& crossPoint,
 	const VFRay& ray, const VFPlane& plane);
@@ -156,6 +152,9 @@ extern void PMMeshTransMove(std::vector<VFVECTOR3>& out,const VSSimpleMeshF& sim
 extern void PMMeshSimplifyConnection(NM_PMMESH::VSMesh& outMesh, const VSPerfectMesh& mesh);
 extern void PMMeshGetSimpleMesh(VSSimpleMeshF& simpMesh, const NM_PMMESH::VSMesh& mesh);
 template<typename T>
+
+
+
 void PMMeshScale(std::vector<VFVECTOR3>& out, const VSSimpleMeshF& simpMesh, const T scale, const bool blMoved = true)
 {
 	out.resize(simpMesh.nVertCount);
@@ -213,6 +212,10 @@ extern bool PMCalcMaxInscribedCircle(const VSConstBuffer<VFVECTOR3>& verts, cons
 */
 extern bool PMCalcMinMaxCircle(const VSConstBuffer<VFVECTOR3>& verts, const float& outterRadius, const float& innerRadius,
 	VFVECTOR3* center = nullptr, const VFPlane* projPlane = nullptr);
+
+
+
+
 /*
 * @brief. 求射线与网格交点
 * @param[in]. mesh. 输入网格
@@ -226,7 +229,4 @@ extern bool PMCalcMinMaxCircle(const VSConstBuffer<VFVECTOR3>& verts, const floa
 extern unsigned PMGetRayIntersect(const VSSimpleMeshF& mesh, const VFRay& ray,
 	std::vector<VFVECTOR3>* posiPoints = nullptr, std::vector<unsigned>* posiSurfIdx = nullptr,
 	std::vector<VFVECTOR3>* negaPoints = nullptr, std::vector<unsigned>* negaSurfIdx = nullptr);
-
-//extern void PMBuildEllipse(std::vector<VFVECTOR3>& out, const unsigned nVertCount,
-//	const float flLongAxis, const float flShortAxis, const float flAngle,
-//	const VFRay& plane, const VFVECTOR3& start);
+ 
