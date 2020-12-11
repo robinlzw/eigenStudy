@@ -94,42 +94,58 @@
 //#include "./Common/pkg/ldteethprocess.h"
 //#pragma comment(lib, "ldteethprocess.lib")						// 切牙库，提供了VBCollisionSence
 //
-//
-//
+
+
+
 //#include "lsalgmeshsimplify2/lsalgmeshsimplify2.h"
 //#pragma comment(lib, "lsalgmeshsimplify2.lib")
 //
 
 
 
+// 研究一下用宏实现的对Persistclass的定义：
+/*
+		VD_PERSISTCLASS_BEGIN(persistSample)
+		VD_DEFMEMBER(VSConstBuffer<VFVECTOR3>, cbCutVertices) 	
+		VD_PERSISTCLASS_END();
+		展开之后的代码：
+*/
+struct persistSample 
+{
+		static const unsigned LOOPBGN = 999;			// ？？？
+		typedef persistSample MYTYPE;
+		VSConstBuffer<VFVECTOR3> cbCutVertices;
 
-//#define VD_DEFRELATION( relation_name , ... )  class VIID_##relation_name ; \
-//    template<> struct IVRLTN< VIID_##relation_name > \
-//    {\
-//        typedef TVRelationDesc< VIID_##relation_name , __VA_ARGS__ >   DESC  ;\
-//        typedef typename DESC::ID                                      ID    ;\
-//        typedef typename DESC::NAME                                    NAME  ;\
-//        typedef typename DESC::VALUE                                   VALUE ;\
-//        typedef typename DESC::HUB                                     HUB   ;\
-//    };\
-//    using relation_name = IVRLTN< VIID_##relation_name >
-//
-//
-//
-//#define VD_DEFRELATION_NS( ns_name , relation_name , ... )  class VIID_##relation_name ; \
-//    struct IVRLTN_##relation_name \
-//    {\
-//        typedef TVRelationDesc< VIID_##relation_name , __VA_ARGS__ >   DESC  ;\
-//        typedef typename DESC::ID                                      ID    ;\
-//        typedef typename DESC::NAME                                    NAME  ;\
-//        typedef typename DESC::VALUE                                   VALUE ;\
-//        typedef typename DESC::HUB                                     HUB   ;\
-//    };};\
-//    template<> struct IVRLTN< ns_name::VIID_##relation_name > : ns_name::IVRLTN_##relation_name {} ;\
-//    namespace ns_name { using relation_name = IVRLTN< VIID_##relation_name >
-//
-//
-//VD_DEFRELATION_NS(VNALGMESH, VRSliceMeshBoundary, VSPerfTopoGraph, VSMeshVertLine);
+
+		template< typename TP >  
+		static void LoopMap(const TVHelperCounter<999> *, TP & mapper, const MYTYPE & v)			// TVHelperCounter是空类。
+		{
+			VBMarshalling< VSConstBuffer<VFVECTOR3>, TV_HasExternalMember< VSConstBuffer<VFVECTOR3>, TP >::value >::SaveExtData(mapper, v.name); 
+			LoopMap(reinterpret_cast< TVHelperCounter<999> * >(0), mapper, v); 
+		}
+
+
+		template< typename CP > 
+		static void LoopCorrect(const TVHelperCounter<999> *, CP & r, unsigned & posEnd, const VSConstBuffer< char > & pbuff, unsigned objPos, unsigned curPos) 
+		{
+				VBMarshalling< VSConstBuffer<VFVECTOR3>, TV_HasPtrMember< VSConstBuffer<VFVECTOR3>, CP >::value >::CorrectPtr(r, posEnd, pbuff, objPos + offsetof(MYTYPE, cbCutVertices), curPos);
+				LoopCorrect(reinterpret_cast< TVHelperCounter<999> * >(0), r, posEnd, pbuff, objPos, posEnd); 
+		}
+
+			
+		template< typename TP > 
+		static void MapTo(TP & mapper, const MYTYPE & ti) 
+		{
+				LoopMap(reinterpret_cast< TVHelperCounter< 0 > * >(0), mapper, ti); 
+		}
+			
+
+		template< typename CP >
+		static void CorrectPtr(CP & r, unsigned & posEnd, const VSConstBuffer< char > & pbuff, unsigned objPos, unsigned curPos) 
+		{
+				LoopCorrect(reinterpret_cast< TVHelperCounter< 0 > * >(0), r, posEnd, pbuff, objPos, curPos);	
+		}; 
+};
 
 
 

@@ -68,7 +68,7 @@ void test1()
 
 //	测试VSConstBuffer类模板 
 /*
-	是一个行为像指针的类，封装的是数据的指针。
+	一个行为像指针的类，并且是底层const指针，不能通过使用buffer来改写数据实体。
 		成员数据
 			unsigned    len;		元素数
 			const T *   pData;		数据的指针，注意是底层const，不可以通过指针修改数据。
@@ -110,7 +110,7 @@ void test2()
 
 	
 	// 生成某个数据对象对应的VBuffer对象时，不发生数据的拷贝。
-	//		VBuffer是一个行为像指针的类。
+	//		VBuffer是一个行为像指针的类，并且是底层const指针，不能通过使用buffer来改写数据实体。
 	int numi = 999;
 	VSConstBuffer<int> ibuffer(1, &numi);
 	cout << "*pData == " << *ibuffer.pData << endl;
@@ -346,7 +346,7 @@ void test9()
 void test10() 
 {
 
-	// 研究一下转换simplemesh和perfectmesh的宏GETPERFECTMESH的实现：
+	// 1. 研究一下转换simplemesh和perfectmesh的宏GETPERFECTMESH的实现：
 	VSSimpleMeshF smesh;
 	VSPerfectMesh pmesh;
 	OBJReadSimpMesh(smesh, "E:/tooth.obj");
@@ -358,6 +358,40 @@ void test10()
 	VSESS<VRPerfMesh> value = *perf_suf1;
 	TVR2B<VNALGMESH::VRPerfMesh> perf_suf2(value);
 	perf_suf2.Build(pmesh, smesh);
+
+
+	// 2. 使用TVR2B<>和TVExtSource<>类模板执行测地距离测量过程的例子：
+	VNALGMESH::VSMeshGeodic result;			// 存放测量结果的对象，只有一个字段：lstDist，是一个封装了float的buffer		
+	VSPerfectMesh  perfMesh;				// 输入网格——一个接近原型的面网格，顶点全在边缘。
+	VSConstBuffer<unsigned>	pointIdx;		// 起始点的索引。
+
+	vector<unsigned> verIdx;
+	verIdx.push_back(0);
+	pointIdx = VD_V2CB(verIdx);
+
+	smesh = VSSimpleMeshF();
+	OBJReadSimpMesh(smesh, "E:/roundSurface.obj");
+	GETPERFECTMESH(perfMesh, smesh, suf11, suf22);
+
+
+	TVExtSource< VNALGMESH::VRGeodicMesh >	geoExt;
+	std::shared_ptr<TVR2B< VNALGMESH::VRGeodicMesh >>	geoPtr;
+	geoPtr.reset(new TVR2B< VNALGMESH::VRGeodicMesh >(*geoExt));
+	geoPtr->Build(result, perfMesh, pointIdx);
+
+
+	//		打印测量测地距离的结果：
+	VSConstBuffer<float>& buffer = result.lstDist;
+	for (int i = 0; i < buffer.len; i++)
+	{
+		cout << buffer.pData[i] << ",  ";
+		if (0 == (i + 1) % 5)
+		{
+			cout << endl;
+		}
+	}
+	cout << endl;
+
 
 
 
@@ -781,7 +815,7 @@ namespace TEST_FUNCTIONAL_CLASS
 		GETPERFECTMESH(perfMesh, mesh, extSys, rb);			// 输入simplemesh得到perfectMesh的接口。
 
 
-															// 射测量起点为网格中第一个点。
+		// 射测量起点为网格中第一个点。
 		vector<unsigned> verIdx;
 		verIdx.push_back(0);
 		pointIdx = VD_V2CB(verIdx);
@@ -789,9 +823,9 @@ namespace TEST_FUNCTIONAL_CLASS
 
 		// VBGeodicMesh功能类对象执行测地距离的测量——Build()方法
 		/*
-		void Build( VNALGMESH::VSMeshGeodic & gm ,
-		const VSGraphMesh & msh ,
-		const VSConstBuffer< unsigned > & cd
+			void Build( VNALGMESH::VSMeshGeodic & gm ,
+			const VSGraphMesh & msh ,
+			const VSConstBuffer< unsigned > & cd
 		) ;
 		*/
 		geo.Build(result, perfMesh, pointIdx);
