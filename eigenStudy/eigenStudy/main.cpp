@@ -279,7 +279,7 @@ void example3()
 
 int main()
 {
-	TEST_BASIC_DS::test10();
+	TEST_FUNCTIONAL_CLASS::test5();
 
 	cout << "finished." << endl;
 

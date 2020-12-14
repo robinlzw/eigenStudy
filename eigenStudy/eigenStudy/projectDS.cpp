@@ -812,7 +812,7 @@ namespace TEST_FUNCTIONAL_CLASS
 
 		VSSimpleMeshF mesh;
 		OBJReadSimpMesh(mesh, "E:/roundSurface.obj");
-		GETPERFECTMESH(perfMesh, mesh, extSys, rb);			// 输入simplemesh得到perfectMesh的接口。
+		GETPERFECTMESH(perfMesh, mesh, hahah, wawawa);			// 输入simplemesh得到perfectMesh的接口。
 
 
 		// 射测量起点为网格中第一个点。
