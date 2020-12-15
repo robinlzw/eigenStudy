@@ -279,9 +279,9 @@ void example3()
 
 int main()
 {
-	TEST_FUNCTIONAL_CLASS::test5();
-
-	cout << "finished." << endl;
+	//TEST_FUNCTIONAL_CLASS::test5();
+	TEST_BASIC_DS::test3();
+	 
 
 
 	getchar();

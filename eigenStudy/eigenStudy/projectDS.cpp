@@ -185,6 +185,20 @@ void test3()
 	cout << "result == " << result << endl;	
 	cout << "numf == " << numf << endl;
 
+
+
+	// 测试一下将序列化数据的dat文件IO
+	std::ofstream outputfile("temp.dat", ios::binary);
+	outputfile << vp;
+	outputfile.close();
+
+	ifstream inputfile("temp.dat", ios::binary);
+	TVPersist<VFVECTOR3> per_vec;
+	inputfile >> per_vec;
+	v3disp(per_vec.Get());
+
+
+	cout << "finished" << endl;
 }
 
 
